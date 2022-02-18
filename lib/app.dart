@@ -8,6 +8,7 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) => const GetMaterialApp(
         title: GlobalConstant.appName,
+        debugShowCheckedModeBanner: false,
         home: Scaffold(),
       );
 }
