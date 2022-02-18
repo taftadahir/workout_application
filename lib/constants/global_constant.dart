@@ -1,3 +1,3 @@
-class Global{
+class GlobalConstant{
   static const String appName = 'Workout Application';
 }
