@@ -1,16 +1,13 @@
-# workout_application
+# Workout Application
 
-A new Flutter project.
+**Description**
+Workout Application used in coordination with the web pair to create and manage your workout routine.
 
-## Getting Started
+**Packages**
+In this application,
+we use
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- _Getx_ package to manage routing, state and dependency injection.
+- _get_storage_ package for device storage
+- _equatable_ package to help with comparison of custom class
+- _flutter_svg_ package to manipulate svg
