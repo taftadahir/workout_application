@@ -2,15 +2,15 @@ import 'package:get_storage/get_storage.dart';
 import 'package:workout_application/constants/storage_constant.dart';
 
 class StorageService {
-  final _storage = GetStorage();
+  static final _storage = GetStorage();
 
-  bool isDarkModeFromStorage() =>
+  static bool isDarkModeFromStorage() =>
       _storage.read(
         StorageConstant.isDarkMode,
       ) ??
       false;
 
-  saveIsDarkModeToStorage(
+  static saveIsDarkModeToStorage(
     bool isDarkMode,
   ) =>
       _storage.write(

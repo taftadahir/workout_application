@@ -2,10 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_application/services/storage_service.dart';
 
-class ThemeService{
-  ThemeMode get theme => StorageService().isDarkModeFromStorage() ? ThemeMode.dark : ThemeMode.light;
+class ThemeService {
+  ThemeMode get theme =>
+      StorageService.isDarkModeFromStorage() ? ThemeMode.dark : ThemeMode.light;
+
   void switchTheme() {
-    Get.changeThemeMode(StorageService().isDarkModeFromStorage() ? ThemeMode.light : ThemeMode.dark);
-    StorageService().saveIsDarkModeToStorage(!StorageService().isDarkModeFromStorage());
+    // Change the app theme
+    Get.changeThemeMode(
+      StorageService.isDarkModeFromStorage() ? ThemeMode.light : ThemeMode.dark,
+    );
+
+    // Save the newly saved theme
+    StorageService.saveIsDarkModeToStorage(
+      !StorageService.isDarkModeFromStorage(),
+    );
   }
 }
