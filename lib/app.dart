@@ -13,12 +13,12 @@ class App extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: my_theme.Theme.light,
         darkTheme: my_theme.Theme.dark,
-        themeMode: ThemeService().theme,
-        home: Scaffold(
+        themeMode: ThemeService.theme,
+        home: const Scaffold(
           body: Center(
             child: TextButton(
-              onPressed: ThemeService().switchTheme,
-              child: const Text('Change theme'),
+              onPressed: ThemeService.switchTheme,
+              child: Text('Change theme'),
             ),
           ),
         ),

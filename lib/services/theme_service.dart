@@ -3,10 +3,10 @@ import 'package:get/get.dart';
 import 'package:workout_application/services/storage_service.dart';
 
 class ThemeService {
-  ThemeMode get theme =>
+  static ThemeMode get theme =>
       StorageService.isDarkModeFromStorage() ? ThemeMode.dark : ThemeMode.light;
 
-  void switchTheme() {
+  static void switchTheme() {
     // Change the app theme
     Get.changeThemeMode(
       StorageService.isDarkModeFromStorage() ? ThemeMode.light : ThemeMode.dark,
