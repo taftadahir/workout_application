@@ -1,9 +1,11 @@
 import 'package:workout_application/bindings/app_binding.dart';
+import 'package:workout_application/configs/routes.dart';
 import 'package:workout_application/configs/theme.dart' as app_theme;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_application/constants/global_constant.dart';
 import 'package:workout_application/services/theme_service.dart';
+import 'package:workout_application/views/screens/dashboard_screen.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -17,13 +19,14 @@ class App extends StatelessWidget {
         darkTheme: app_theme.Theme.dark,
         themeMode: ThemeService.theme,
         initialBinding: AppBinding(),
-        home: const Scaffold(
-          body: Center(
-            child: TextButton(
-              onPressed: ThemeService.switchTheme,
-              child: Text('Change theme'),
-            ),
-          ),
-        ),
+        initialRoute: AppRoute.dashboardScreen,
+        getPages: _getPages,
       );
+
+  List<GetPage<dynamic>> get _getPages => [
+        GetPage(
+          name: AppRoute.dashboardScreen,
+          page: () => const DashboardScreen(),
+        ),
+      ];
 }
