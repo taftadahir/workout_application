@@ -1,3 +1,4 @@
+import 'package:workout_application/bindings/app_binding.dart';
 import 'package:workout_application/configs/theme.dart' as app_theme;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,6 +16,7 @@ class App extends StatelessWidget {
         theme: app_theme.Theme.light,
         darkTheme: app_theme.Theme.dark,
         themeMode: ThemeService.theme,
+        initialBinding: AppBinding(),
         home: const Scaffold(
           body: Center(
             child: TextButton(
