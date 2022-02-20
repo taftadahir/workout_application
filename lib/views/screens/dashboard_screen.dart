@@ -8,7 +8,7 @@ class DashboardScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    List<Widget> screens = [
+    List<Widget> _screens = [
       Container(
         color: Colors.redAccent,
       ),
@@ -23,7 +23,7 @@ class DashboardScreen extends StatelessWidget {
       builder: (controller) => Scaffold(
         bottomNavigationBar: const BottomBarComponent(),
         body: IndexedStack(
-          children: screens,
+          children: _screens,
           index: controller.selectedItem,
         ),
       ),
