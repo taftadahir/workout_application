@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:workout_application/controllers/bottom_bar_controller.dart';
+import 'package:workout_application/controllers/dashboard_controller.dart';
 import 'package:workout_application/views/components/app_bar_component.dart';
 import 'package:workout_application/views/components/bottom_bar_component.dart';
 
@@ -20,13 +20,13 @@ class DashboardScreen extends StatelessWidget {
         color: Colors.deepPurpleAccent,
       ),
     ];
-    return GetBuilder<BottomBarController>(
+    return GetBuilder<DashboardController>(
       builder: (controller) => Scaffold(
-        appBar: AppBarComponent.getDashboardAppBar(index: controller.selectedItem),
+        appBar: AppBarComponent.getDashboardAppBar(index: controller.screenIndex),
         bottomNavigationBar: const BottomBarComponent(),
         body: IndexedStack(
           children: _screens,
-          index: controller.selectedItem,
+          index: controller.screenIndex,
         ),
       ),
     );
