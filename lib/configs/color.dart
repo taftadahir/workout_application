@@ -25,8 +25,8 @@ class ColorPalette {
 ColorPalette get darkPalette => ColorPalette(
       backgroundColor: const Color(0xFF30343F),
       backgroundLightColor: const Color(0xFF343947),
-      textColor: const Color(0xFFF3F4F8),
-      textLightColor: const Color(0xFF8d99ae),
+      textColor: const Color(0xFFFFFFFF),
+      textLightColor: const Color(0xFFF3F4F8),
       primaryColor: const Color(0xFF6F7BF7),
       successColor: const Color(0xFF7ef29d),
       errorColor: const Color(0xFFf1515e),
