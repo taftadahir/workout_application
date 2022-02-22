@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:workout_application/configs/color.dart';
 
 class Theme {
-  // Text button theme
+  // Text Button Theme
   static TextButtonThemeData get _textButtonThemeDataLight =>
       TextButtonThemeData(
         style: ButtonStyle(
@@ -61,7 +61,7 @@ class Theme {
         ),
       );
 
-  // App bar theme
+  // App Bar Theme
   static AppBarTheme get _appBarThemeLight => AppBarTheme(
         backgroundColor: lightPalette.backgroundColor,
         elevation: 0.0,
@@ -88,7 +88,7 @@ class Theme {
         ),
       );
 
-  // Bottom navigation bar
+  // Bottom Navigation Bar Theme Data
   static BottomNavigationBarThemeData get _bottomNavigationBarThemeDataLight =>
       BottomNavigationBarThemeData(
         backgroundColor: lightPalette.backgroundColor,
@@ -121,7 +121,45 @@ class Theme {
         ),
       );
 
-  // Theme data
+  // List Tile Theme Data
+  static ListTileThemeData get _listTileThemeDataLight => ListTileThemeData(
+    textColor: lightPalette.textColor,
+    iconColor: lightPalette.textColor,
+    tileColor: lightPalette.backgroundColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16.0),
+    ),
+    contentPadding: const EdgeInsets.symmetric(
+      horizontal: 24,
+      vertical: 8,
+    ),
+  );
+
+  static ListTileThemeData get _listTileThemeDataDark => ListTileThemeData(
+    textColor: darkPalette.textColor,
+    iconColor: darkPalette.textColor,
+    tileColor: darkPalette.backgroundColor,
+    shape: RoundedRectangleBorder(
+      borderRadius: BorderRadius.circular(16.0),
+    ),
+    contentPadding: const EdgeInsets.symmetric(
+      horizontal: 24,
+      vertical: 8,
+    ),
+  );
+
+  // Drawer Theme Data
+  static DrawerThemeData get _drawerThemeDataLight=> DrawerThemeData(
+    backgroundColor: lightPalette.backgroundColor,
+    scrimColor: lightPalette.backgroundLightColor,
+  );
+
+  static DrawerThemeData get _drawerThemeDataDark=> DrawerThemeData(
+    backgroundColor: darkPalette.backgroundColor,
+    scrimColor: darkPalette.backgroundLightColor,
+  );
+
+  // Theme Data
   static final light = ThemeData(
     backgroundColor: lightPalette.backgroundColor,
     scaffoldBackgroundColor: lightPalette.backgroundColor,
@@ -130,6 +168,8 @@ class Theme {
     bottomNavigationBarTheme: _bottomNavigationBarThemeDataLight,
     appBarTheme: _appBarThemeLight,
     textButtonTheme: _textButtonThemeDataLight,
+    listTileTheme: _listTileThemeDataLight,
+    drawerTheme: _drawerThemeDataLight,
   );
 
   static final dark = ThemeData(
@@ -140,5 +180,7 @@ class Theme {
     bottomNavigationBarTheme: _bottomNavigationBarThemeDataDark,
     appBarTheme: _appBarThemeDark,
     textButtonTheme: _textButtonThemeDataDark,
+    listTileTheme: _listTileThemeDataDark,
+    drawerTheme: _drawerThemeDataDark,
   );
 }
