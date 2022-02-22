@@ -1,7 +1,19 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:workout_application/controllers/dashboard_controller.dart';
 
 class AppBarComponent {
-  static const IconData _menuIcon = Icons.menu_rounded;
+  static  final Widget _menu = GetBuilder(
+      init: DashboardController(),
+      builder: (DashboardController controller) {
+        return IconButton(
+          onPressed: ()=>controller.openDrawer(),
+          icon: const Icon(
+            Icons.menu_rounded,
+          ),
+        );
+      }
+  );
 
   static AppBar getAppBar({
     Widget? title,
@@ -20,12 +32,7 @@ class AppBarComponent {
     switch (index) {
       case 0:
         return getAppBar(
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(
-              _menuIcon,
-            ),
-          ),
+          leading: _menu,
           title: const Text('Routine'),
           actions: [
             Container(
@@ -44,10 +51,7 @@ class AppBarComponent {
 
       case 1:
         return getAppBar(
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(_menuIcon),
-          ),
+          leading: _menu,
           title: const Text('Home'),
           actions: const [
             Icon(
@@ -59,10 +63,7 @@ class AppBarComponent {
         );
       case 2:
         return getAppBar(
-          leading: IconButton(
-            onPressed: () {},
-            icon: const Icon(_menuIcon),
-          ),
+          leading: _menu,
           title: const Text('Favorite'),
         );
       default:
