@@ -68,27 +68,32 @@ class DrawerScreen extends StatelessWidget {
                   ),
                 ),
                 Container(
+                  margin: const EdgeInsets.symmetric(horizontal: 24),
+                  child: Divider(color: Get.theme.dividerColor, thickness: 1),
+                ),
+                Container(
                   margin: const EdgeInsets.only(
                     right: 24,
+                    top: 32,
                     bottom: 40,
                   ),
                   child: Column(
                     children: drawerItems
                         .map(
                           (item) => ListTile(
-                        title: Text(
-                          item.title,
-                          style: const TextStyle(
-                            fontSize: 16.0,
+                            title: Text(
+                              item.title,
+                              style: const TextStyle(
+                                fontSize: 16.0,
+                              ),
+                            ),
+                            leading: Icon(
+                              item.icon,
+                              size: 24.0,
+                            ),
+                            onTap: () {},
                           ),
-                        ),
-                        leading: Icon(
-                          item.icon,
-                          size: 24.0,
-                        ),
-                        onTap: () {},
-                      ),
-                    )
+                        )
                         .toList(),
                   ),
                 ),
