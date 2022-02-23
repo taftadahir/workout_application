@@ -24,7 +24,7 @@ class DrawerScreen extends StatelessWidget {
                   margin: const EdgeInsets.only(
                     left: 24,
                     right: 24,
-                    bottom: 56,
+                    bottom: 32,
                   ),
                   child: GestureDetector(
                     onTap: () {},
@@ -34,7 +34,7 @@ class DrawerScreen extends StatelessWidget {
                         Container(
                           width: 112,
                           height: 112,
-                          margin: const EdgeInsets.only(bottom: 32),
+                          margin: const EdgeInsets.only(bottom: 24),
                           decoration: BoxDecoration(
                             color: Colors.redAccent,
                             borderRadius: BorderRadius.circular(16.0),
@@ -50,7 +50,7 @@ class DrawerScreen extends StatelessWidget {
                           'Jane Doe',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 32,
+                            fontSize: 24,
                           ),
                         ),
                         const SizedBox(
@@ -59,7 +59,7 @@ class DrawerScreen extends StatelessWidget {
                         const Text(
                           'jane.doe@mail.mail',
                           style: TextStyle(
-                            fontSize: 18,
+                            fontSize: 16,
                             fontWeight: FontWeight.normal,
                           ),
                         ),
@@ -79,11 +79,12 @@ class DrawerScreen extends StatelessWidget {
                         title: Text(
                           item.title,
                           style: const TextStyle(
-                            fontSize: 24,
+                            fontSize: 16.0,
                           ),
                         ),
                         leading: Icon(
                           item.icon,
+                          size: 24.0,
                         ),
                         onTap: () {},
                       ),

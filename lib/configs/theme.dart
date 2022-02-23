@@ -123,41 +123,43 @@ class Theme {
 
   // List Tile Theme Data
   static ListTileThemeData get _listTileThemeDataLight => ListTileThemeData(
-    textColor: lightPalette.textColor,
-    iconColor: lightPalette.textColor,
-    tileColor: lightPalette.backgroundColor,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16.0),
-    ),
-    contentPadding: const EdgeInsets.symmetric(
-      horizontal: 24,
-      vertical: 8,
-    ),
-  );
+        textColor: lightPalette.textColor,
+        iconColor: lightPalette.textColor,
+        tileColor: lightPalette.backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 24.0,
+          vertical: 0,
+        ),
+        minLeadingWidth: 0,
+      );
 
   static ListTileThemeData get _listTileThemeDataDark => ListTileThemeData(
-    textColor: darkPalette.textColor,
-    iconColor: darkPalette.textColor,
-    tileColor: darkPalette.backgroundColor,
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(16.0),
-    ),
-    contentPadding: const EdgeInsets.symmetric(
-      horizontal: 24,
-      vertical: 8,
-    ),
-  );
+        textColor: darkPalette.textColor,
+        iconColor: darkPalette.textColor,
+        tileColor: darkPalette.backgroundColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16.0),
+        ),
+        contentPadding: const EdgeInsets.symmetric(
+          horizontal: 24.0,
+          vertical: 0,
+        ),
+        minLeadingWidth: 0,
+      );
 
   // Drawer Theme Data
-  static DrawerThemeData get _drawerThemeDataLight=> DrawerThemeData(
-    backgroundColor: lightPalette.backgroundColor,
-    scrimColor: lightPalette.backgroundLightColor,
-  );
+  static DrawerThemeData get _drawerThemeDataLight => DrawerThemeData(
+        backgroundColor: lightPalette.backgroundColor,
+        scrimColor: lightPalette.backgroundLightColor,
+      );
 
-  static DrawerThemeData get _drawerThemeDataDark=> DrawerThemeData(
-    backgroundColor: darkPalette.backgroundColor,
-    scrimColor: darkPalette.backgroundLightColor,
-  );
+  static DrawerThemeData get _drawerThemeDataDark => DrawerThemeData(
+        backgroundColor: darkPalette.backgroundColor,
+        scrimColor: darkPalette.backgroundLightColor,
+      );
 
   // Theme Data
   static final light = ThemeData(
