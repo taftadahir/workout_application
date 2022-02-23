@@ -153,12 +153,10 @@ class Theme {
   // Drawer Theme Data
   static DrawerThemeData get _drawerThemeDataLight => DrawerThemeData(
         backgroundColor: lightPalette.backgroundColor,
-        scrimColor: lightPalette.backgroundLightColor,
       );
 
   static DrawerThemeData get _drawerThemeDataDark => DrawerThemeData(
         backgroundColor: darkPalette.backgroundColor,
-        scrimColor: darkPalette.backgroundLightColor,
       );
 
   // Theme Data
@@ -167,6 +165,8 @@ class Theme {
     scaffoldBackgroundColor: lightPalette.backgroundColor,
     primaryColor: lightPalette.primaryColor,
     brightness: Brightness.light,
+    shadowColor: lightPalette.backgroundLightColor,
+    dividerColor: lightPalette.greyColor,
     bottomNavigationBarTheme: _bottomNavigationBarThemeDataLight,
     appBarTheme: _appBarThemeLight,
     textButtonTheme: _textButtonThemeDataLight,
@@ -179,6 +179,8 @@ class Theme {
     scaffoldBackgroundColor: darkPalette.backgroundColor,
     primaryColor: darkPalette.primaryColor,
     brightness: Brightness.dark,
+    shadowColor: darkPalette.backgroundLightColor,
+    dividerColor: darkPalette.greyColor,
     bottomNavigationBarTheme: _bottomNavigationBarThemeDataDark,
     appBarTheme: _appBarThemeDark,
     textButtonTheme: _textButtonThemeDataDark,

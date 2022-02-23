@@ -88,7 +88,7 @@ class DashboardScreen extends StatelessWidget {
                   ? [
                 BoxShadow(
                   color:
-                  Get.theme.drawerTheme.scrimColor ?? Colors.white24,
+                  Get.theme.shadowColor,
                   offset: const Offset(-8, 0),
                   spreadRadius: 8,
                   blurRadius: 16,
