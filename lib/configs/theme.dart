@@ -159,6 +159,45 @@ class Theme {
         backgroundColor: darkPalette.backgroundColor,
       );
 
+  // Elevated Button Theme
+  static ElevatedButtonThemeData get _elevatedButtonThemeDataLight =>
+      ElevatedButtonThemeData(
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32),
+            ),
+          ),
+          minimumSize: MaterialStateProperty.all(
+            const Size.fromWidth(double.infinity),
+          ),
+          backgroundColor: MaterialStateProperty.all(lightPalette.primaryColor),
+          elevation: MaterialStateProperty.all(0.0),
+          padding: MaterialStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 24),
+          ),
+        ),
+      );
+
+  static ElevatedButtonThemeData get _elevatedButtonThemeDataDark =>
+      ElevatedButtonThemeData(
+        style: ButtonStyle(
+          shape: MaterialStateProperty.all(
+            RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(32),
+            ),
+          ),
+          minimumSize: MaterialStateProperty.all(
+            const Size.fromWidth(double.infinity),
+          ),
+          backgroundColor: MaterialStateProperty.all(darkPalette.primaryColor),
+          elevation: MaterialStateProperty.all(0.0),
+          padding: MaterialStateProperty.all(
+            const EdgeInsets.symmetric(horizontal: 24),
+          ),
+        ),
+      );
+
   // Theme Data
   static final light = ThemeData(
     backgroundColor: lightPalette.backgroundColor,
@@ -167,11 +206,13 @@ class Theme {
     brightness: Brightness.light,
     shadowColor: lightPalette.backgroundLightColor,
     dividerColor: lightPalette.greyColor,
+    disabledColor: lightPalette.greyColor,
     bottomNavigationBarTheme: _bottomNavigationBarThemeDataLight,
     appBarTheme: _appBarThemeLight,
     textButtonTheme: _textButtonThemeDataLight,
     listTileTheme: _listTileThemeDataLight,
     drawerTheme: _drawerThemeDataLight,
+    elevatedButtonTheme: _elevatedButtonThemeDataLight,
   );
 
   static final dark = ThemeData(
@@ -181,10 +222,12 @@ class Theme {
     brightness: Brightness.dark,
     shadowColor: darkPalette.backgroundLightColor,
     dividerColor: darkPalette.greyColor,
+    disabledColor: darkPalette.greyColor,
     bottomNavigationBarTheme: _bottomNavigationBarThemeDataDark,
     appBarTheme: _appBarThemeDark,
     textButtonTheme: _textButtonThemeDataDark,
     listTileTheme: _listTileThemeDataDark,
     drawerTheme: _drawerThemeDataDark,
+    elevatedButtonTheme: _elevatedButtonThemeDataDark,
   );
 }
