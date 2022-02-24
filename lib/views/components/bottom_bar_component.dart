@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:workout_application/configs/behavior.dart';
 import 'package:workout_application/controllers/dashboard_controller.dart';
 
 class BottomBarComponent extends StatelessWidget {
@@ -9,7 +10,7 @@ class BottomBarComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return GetBuilder<DashboardController>(
       builder: (controller) => BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
+        type: Behavior.bottomNavigationBarType,
         currentIndex: controller.screenIndex,
         elevation: 0.0,
         onTap: controller.updateScreenIndex,
