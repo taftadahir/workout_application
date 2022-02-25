@@ -4,8 +4,10 @@ import 'package:workout_application/configs/theme.dart' as app_theme;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_application/constants/global_constant.dart';
+import 'package:workout_application/services/storage_service.dart';
 import 'package:workout_application/services/theme_service.dart';
 import 'package:workout_application/views/screens/dashboard_screen.dart';
+import 'package:workout_application/views/screens/onboarding_screen.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
@@ -19,7 +21,9 @@ class App extends StatelessWidget {
         darkTheme: app_theme.Theme.dark,
         themeMode: ThemeService.theme,
         initialBinding: AppBinding(),
-        initialRoute: AppRoute.dashboardScreen,
+        initialRoute: StorageService.isFirstEntrance
+            ? AppRoute.onboardingScreen
+            : AppRoute.dashboardScreen,
         getPages: _getPages,
       );
 
@@ -27,6 +31,10 @@ class App extends StatelessWidget {
         GetPage(
           name: AppRoute.dashboardScreen,
           page: () => const DashboardScreen(),
+        ),
+        GetPage(
+          name: AppRoute.onboardingScreen,
+          page: () => const OnboardingScreen(),
         ),
       ];
 }
