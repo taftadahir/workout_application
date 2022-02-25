@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:workout_application/configs/color.dart';
 
+import 'behavior.dart';
+
 class Theme {
   // Text Button Theme
   static TextButtonThemeData get _textButtonThemeDataLight =>
@@ -171,6 +173,7 @@ class Theme {
           minimumSize: MaterialStateProperty.all(
             const Size.fromWidth(double.infinity),
           ),
+          animationDuration: Behavior.animationDuration,
           backgroundColor: MaterialStateProperty.all(lightPalette.primaryColor),
           elevation: MaterialStateProperty.all(0.0),
           padding: MaterialStateProperty.all(
@@ -190,6 +193,7 @@ class Theme {
           minimumSize: MaterialStateProperty.all(
             const Size.fromWidth(double.infinity),
           ),
+          animationDuration: Behavior.animationDuration,
           backgroundColor: MaterialStateProperty.all(darkPalette.primaryColor),
           elevation: MaterialStateProperty.all(0.0),
           padding: MaterialStateProperty.all(
