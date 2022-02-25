@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:workout_application/configs/routes.dart';
+import 'package:workout_application/controllers/dashboard_controller.dart';
 import 'package:workout_application/models/drawer_item.dart';
+import 'package:workout_application/views/screens/onboarding_screen.dart';
 
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({Key? key}) : super(key: key);
@@ -77,24 +80,33 @@ class DrawerScreen extends StatelessWidget {
                     top: 32,
                     bottom: 40,
                   ),
-                  child: Column(
-                    children: drawerItems
-                        .map(
-                          (item) => ListTile(
-                            title: Text(
-                              item.title,
-                              style: const TextStyle(
-                                fontSize: 16.0,
+                  child: GetBuilder<DashboardController>(
+                    builder: (controller) {
+                      return Column(
+                        children: drawerItems
+                            .map(
+                              (item) => ListTile(
+                                title: Text(
+                                  item.title,
+                                  style: const TextStyle(
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                                leading: Icon(
+                                  item.icon,
+                                  size: 24.0,
+                                ),
+                                onTap: () {
+                                  if (item.type == AppRoute.onboardingScreen) {
+                                    controller.closeDrawer();
+                                    Get.to(const OnboardingScreen());
+                                  }
+                                },
                               ),
-                            ),
-                            leading: Icon(
-                              item.icon,
-                              size: 24.0,
-                            ),
-                            onTap: () {},
-                          ),
-                        )
-                        .toList(),
+                            )
+                            .toList(),
+                      );
+                    }
                   ),
                 ),
               ],
