@@ -24,17 +24,6 @@ class App extends StatelessWidget {
         initialRoute: StorageService.isFirstEntrance
             ? AppRoute.onboardingScreen
             : AppRoute.dashboardScreen,
-        getPages: _getPages,
+        getPages: AppRoute.getPages,
       );
-
-  List<GetPage<dynamic>> get _getPages => [
-        GetPage(
-          name: AppRoute.dashboardScreen,
-          page: () => const DashboardScreen(),
-        ),
-        GetPage(
-          name: AppRoute.onboardingScreen,
-          page: () => const OnboardingScreen(),
-        ),
-      ];
 }
