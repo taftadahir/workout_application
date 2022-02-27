@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workout_application/configs/color.dart';
+import 'package:workout_application/configs/style.dart';
 
 import 'behavior.dart';
 
@@ -202,6 +203,67 @@ class Theme {
         ),
       );
 
+  // Outline Input Border
+  static OutlineInputBorder get _outlineInputBorderLight => OutlineInputBorder(
+        borderSide: BorderSide(
+          color: lightPalette.backgroundLightColor,
+          width: 0.0,
+        ),
+      );
+
+  static OutlineInputBorder get _outlineInputBorderDark => OutlineInputBorder(
+        borderSide: BorderSide(
+          color: darkPalette.backgroundLightColor,
+          width: 0.0,
+        ),
+      );
+
+  // Input Decoration Theme
+  static InputDecorationTheme get _inputDecorationThemeLight =>
+      InputDecorationTheme(
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        border: _outlineInputBorderLight,
+        enabledBorder: _outlineInputBorderLight,
+        errorBorder: _outlineInputBorderLight,
+        focusedBorder: _outlineInputBorderLight,
+        focusedErrorBorder: _outlineInputBorderLight,
+        disabledBorder: _outlineInputBorderLight,
+        floatingLabelStyle: Style.fieldLabelStyleLight,
+        errorStyle: Style.fieldErrorStyle,
+        hintStyle: Style.fieldHintStyleLight,
+        labelStyle: Style.fieldLabelStyleLight,
+      );
+
+  static InputDecorationTheme get _inputDecorationThemeDark =>
+      InputDecorationTheme(
+        floatingLabelBehavior: FloatingLabelBehavior.always,
+        border: _outlineInputBorderDark,
+        enabledBorder: _outlineInputBorderDark,
+        errorBorder: _outlineInputBorderDark,
+        focusedBorder: _outlineInputBorderDark,
+        focusedErrorBorder: _outlineInputBorderDark,
+        disabledBorder: _outlineInputBorderDark,
+        floatingLabelStyle: Style.fieldLabelStyleDark,
+        errorStyle: Style.fieldErrorStyle,
+        hintStyle: Style.fieldHintStyleDark,
+        labelStyle: Style.fieldLabelStyleDark,
+      );
+
+  // Snack Bar Theme
+  static SnackBarThemeData get _snackBarThemeDataDark => SnackBarThemeData(
+        backgroundColor: darkPalette.errorColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      );
+
+  static SnackBarThemeData get _snackBarThemeDataLight => SnackBarThemeData(
+        backgroundColor: lightPalette.errorColor,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(16),
+        ),
+      );
+
   // Theme Data
   static final light = ThemeData(
     backgroundColor: lightPalette.backgroundColor,
@@ -211,12 +273,15 @@ class Theme {
     shadowColor: lightPalette.backgroundLightColor,
     dividerColor: lightPalette.greyColor,
     disabledColor: lightPalette.greyColor,
+    cardColor: lightPalette.backgroundLightColor,
     bottomNavigationBarTheme: _bottomNavigationBarThemeDataLight,
     appBarTheme: _appBarThemeLight,
     textButtonTheme: _textButtonThemeDataLight,
     listTileTheme: _listTileThemeDataLight,
     drawerTheme: _drawerThemeDataLight,
     elevatedButtonTheme: _elevatedButtonThemeDataLight,
+    inputDecorationTheme: _inputDecorationThemeLight,
+    snackBarTheme: _snackBarThemeDataLight,
   );
 
   static final dark = ThemeData(
@@ -227,11 +292,14 @@ class Theme {
     shadowColor: darkPalette.backgroundLightColor,
     dividerColor: darkPalette.greyColor,
     disabledColor: darkPalette.greyColor,
+    cardColor: darkPalette.backgroundLightColor,
     bottomNavigationBarTheme: _bottomNavigationBarThemeDataDark,
     appBarTheme: _appBarThemeDark,
     textButtonTheme: _textButtonThemeDataDark,
     listTileTheme: _listTileThemeDataDark,
     drawerTheme: _drawerThemeDataDark,
     elevatedButtonTheme: _elevatedButtonThemeDataDark,
+    inputDecorationTheme: _inputDecorationThemeDark,
+    snackBarTheme: _snackBarThemeDataDark,
   );
 }
