@@ -7,4 +7,5 @@ class Behavior {
       BottomNavigationBarType.fixed;
 
   static Duration get animationDuration => const Duration(milliseconds: 250);
+  static Duration get snackDuration => const Duration(seconds: 5);
 }
