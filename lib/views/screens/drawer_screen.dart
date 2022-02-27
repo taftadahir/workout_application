@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:workout_application/configs/layout.dart';
 import 'package:workout_application/configs/routes.dart';
 import 'package:workout_application/controllers/dashboard_controller.dart';
+import 'package:workout_application/controllers/login_controller.dart';
+import 'package:workout_application/controllers/onboarding_controller.dart';
 import 'package:workout_application/models/drawer_item.dart';
-import 'package:workout_application/views/screens/onboarding_screen.dart';
 
 class DrawerScreen extends StatelessWidget {
   const DrawerScreen({Key? key}) : super(key: key);
@@ -17,7 +19,7 @@ class DrawerScreen extends StatelessWidget {
             width: Get.width * 0.75 <= 400 ? Get.width * 0.75 : 400,
             margin: EdgeInsets.symmetric(
               vertical: Get.height * .1,
-              horizontal: 16,
+              horizontal: Layout.horizontalScreenPadding,
             ),
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -97,9 +99,14 @@ class DrawerScreen extends StatelessWidget {
                                   size: 24.0,
                                 ),
                                 onTap: () {
+                                  controller.closeDrawer();
                                   if (item.type == AppRoute.onboardingScreen) {
-                                    controller.closeDrawer();
-                                    Get.to(const OnboardingScreen());
+                                    Get.lazyPut(() => OnboardingController());
+                                    Get.toNamed(AppRoute.onboardingScreen);
+                                  }
+                                  if(item.type == 'Logout'){
+                                    Get.lazyPut(() => LoginController());
+                                    Get.toNamed(AppRoute.loginScreen);
                                   }
                                 },
                               ),
