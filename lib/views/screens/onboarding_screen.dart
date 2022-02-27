@@ -18,29 +18,36 @@ class OnboardingScreen extends StatelessWidget {
     return GetBuilder<OnboardingController>(
       builder: (controller) => Scaffold(
         body: SafeArea(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: Layout.verticalScreenPadding,
-              left: Layout.horizontalScreenPadding,
-              right: Layout.horizontalScreenPadding,
+          child: SingleChildScrollView(
+            physics: Behavior.physics,
+            child: Container(
+              constraints: BoxConstraints(
+                minHeight: Get.height -
+                    MediaQuery.of(context).viewInsets.bottom -
+                    Get.mediaQuery.padding.top -
+                    Get.mediaQuery.padding.bottom,
+              ),
+              padding: const EdgeInsets.only(
+                top: Layout.verticalScreenPadding,
+                left: Layout.horizontalScreenPadding,
+                right: Layout.horizontalScreenPadding,
+              ),
+              child: Column(
+                mainAxisSize: MainAxisSize.max,
+                // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: _screenContent(context, controller),
+              ),
             ),
-            child: Get.height < Layout.minHeight
-                ? ListView(
-                    physics: Behavior.physics,
-                    children: _screenContent(controller),
-                  )
-                : Column(
-                    mainAxisSize: MainAxisSize.max,
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: _screenContent(controller),
-                  ),
           ),
         ),
       ),
     );
   }
 
-  List<Widget> _screenContent(OnboardingController controller) {
+  List<Widget> _screenContent(
+    BuildContext context,
+    OnboardingController controller,
+  ) {
     PageController _pageController = PageController();
 
     return [
@@ -80,7 +87,15 @@ class OnboardingScreen extends StatelessWidget {
           ],
         ),
       ),
-      Expanded(
+      Container(
+        constraints: BoxConstraints(
+          maxWidth: Get.width,
+        ),
+        height: Get.height -
+            MediaQuery.of(context).viewInsets.bottom -
+            Get.mediaQuery.padding.top -
+            Get.mediaQuery.padding.bottom -
+            290,
         child: PageView.builder(
           physics: Behavior.physics,
           controller: _pageController,
