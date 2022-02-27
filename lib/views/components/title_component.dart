@@ -24,7 +24,7 @@ class TitleComponent extends StatelessWidget {
         _textAlign = TextAlign.center;
         break;
     }
-    
+
     return Text(
       text,
       textAlign: _textAlign,
