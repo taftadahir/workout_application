@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
@@ -22,9 +21,17 @@ class OnboardingComponent extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Expanded(
-            child: SvgPicture.asset(
-              'assets/images/${onboarding.image}',
-              width: Get.width,
+            child: Center(
+              child: Container(
+                constraints: BoxConstraints(
+                  maxHeight: 320,
+                  minHeight: 200,
+                  maxWidth: Get.width,
+                ),
+                child: SvgPicture.asset(
+                  'assets/images/${onboarding.image}',
+                ),
+              ),
             ),
           ),
           const SizedBox(height: 40),
