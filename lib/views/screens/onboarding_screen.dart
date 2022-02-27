@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_application/configs/behavior.dart';
 import 'package:workout_application/configs/layout.dart';
+import 'package:workout_application/configs/routes.dart';
 import 'package:workout_application/controllers/onboarding_controller.dart';
 import 'package:workout_application/services/storage_service.dart';
 import 'package:workout_application/views/components/dot_component.dart';
 import 'package:workout_application/views/components/onboarding_component.dart';
-import 'package:workout_application/views/screens/dashboard_screen.dart';
 
 import '../components/button_component.dart';
 
@@ -26,14 +26,14 @@ class OnboardingScreen extends StatelessWidget {
             ),
             child: Get.height < Layout.minHeight
                 ? ListView(
-              physics: Behavior.physics,
-              children: _screenContent(controller),
-            )
+                    physics: Behavior.physics,
+                    children: _screenContent(controller),
+                  )
                 : Column(
-              mainAxisSize: MainAxisSize.max,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: _screenContent(controller),
-            ),
+                    mainAxisSize: MainAxisSize.max,
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: _screenContent(controller),
+                  ),
           ),
         ),
       ),
@@ -54,29 +54,29 @@ class OnboardingScreen extends StatelessWidget {
             controller.index == 0
                 ? Container()
                 : IconButton(
-              icon: const Icon(Icons.arrow_back_ios_new_rounded),
-              onPressed: () {
-                _pageController.previousPage(
-                  duration: Behavior.animationDuration,
-                  curve: Curves.bounceIn,
-                );
-              },
-            ),
+                    icon: const Icon(Icons.arrow_back_ios_new_rounded),
+                    onPressed: () {
+                      _pageController.previousPage(
+                        duration: Behavior.animationDuration,
+                        curve: Curves.bounceIn,
+                      );
+                    },
+                  ),
             controller.index == OnboardingController.data.length - 1
                 ? Container()
                 : TextButton(
-              onPressed: () {
-                _pageController.jumpToPage(
-                  OnboardingController.data.length - 1,
-                );
-              },
-              child: const Text(
-                'SKIP',
-                style: TextStyle(
-                  fontWeight: FontWeight.w600,
-                ),
-              ),
-            ),
+                    onPressed: () {
+                      _pageController.jumpToPage(
+                        OnboardingController.data.length - 1,
+                      );
+                    },
+                    child: const Text(
+                      'SKIP',
+                      style: TextStyle(
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
+                  ),
           ],
         ),
       ),
@@ -99,19 +99,22 @@ class OnboardingScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: List.generate(
                 OnboardingController.data.length,
-                    (index) => DotComponent(
+                (index) => DotComponent(
                   currentIndex: controller.index,
                   index: index,
                 ),
               ),
             ),
           ),
-          Container(
-            height: 48.0,
-            width: double.infinity,
-            margin: const EdgeInsets.symmetric(
-              vertical: 32.0,
-              horizontal: Layout.horizontalScreenPadding,
+          const SizedBox(
+            height: 32,
+          ),
+          ConstrainedBox(
+            constraints: const BoxConstraints(
+              minWidth: 240,
+              maxHeight: 56,
+              maxWidth: 320,
+              minHeight: 56,
             ),
             child: ButtonComponent(
               text: controller.index == OnboardingController.data.length - 1
@@ -120,8 +123,8 @@ class OnboardingScreen extends StatelessWidget {
               onPressed: () {
                 if (controller.index == OnboardingController.data.length - 1) {
                   controller.index = 0;
-                  StorageService.isFirstEntrance =false;
-                  Get.to(const DashboardScreen());
+                  StorageService.isFirstEntrance = false;
+                  Get.offNamed(AppRoute.dashboardScreen);
                 } else {
                   _pageController.nextPage(
                     duration: Behavior.animationDuration,
@@ -130,6 +133,9 @@ class OnboardingScreen extends StatelessWidget {
                 }
               },
             ),
+          ),
+          const SizedBox(
+            height: 32,
           ),
         ],
       ),
