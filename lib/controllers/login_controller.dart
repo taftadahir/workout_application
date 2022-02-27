@@ -40,7 +40,7 @@ class LoginController extends GetxController {
       }
       hasError = true;
     }
-    
+
     if (hasError) {
       Get.showSnackbar(
         GetSnackBar(
