@@ -60,7 +60,9 @@ class LoginScreen extends GetView<LoginController> {
             icon: const Icon(Icons.home_max_rounded),
           ),
           TextButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.offNamed(AppRoute.registerScreen);
+            },
             child: const Text('Register'),
           ),
         ],
@@ -112,7 +114,7 @@ class LoginScreen extends GetView<LoginController> {
               minHeight: 56,
             ),
             child: ButtonComponent(
-              text: 'Register',
+              text: 'Login',
               onPressed: controller.login,
             ),
           ),
