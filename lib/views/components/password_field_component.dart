@@ -26,6 +26,7 @@ class PasswordFieldComponent extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       // Null mean everything is fine ( no error ) -> for validator
+      validator: (value) => null,
       onSaved: onSaved,
       keyboardType: TextInputType.visiblePassword,
       obscureText: obscurePassword,
