@@ -3,8 +3,6 @@ import 'package:get/get.dart';
 import 'package:workout_application/configs/layout.dart';
 import 'package:workout_application/configs/routes.dart';
 import 'package:workout_application/controllers/dashboard_controller.dart';
-import 'package:workout_application/controllers/login_controller.dart';
-import 'package:workout_application/controllers/onboarding_controller.dart';
 import 'package:workout_application/models/drawer_item.dart';
 
 class DrawerScreen extends StatelessWidget {
@@ -101,11 +99,9 @@ class DrawerScreen extends StatelessWidget {
                                 onTap: () {
                                   controller.closeDrawer();
                                   if (item.type == AppRoute.onboardingScreen) {
-                                    Get.lazyPut(() => OnboardingController());
                                     Get.toNamed(AppRoute.onboardingScreen);
                                   }
                                   if(item.type == 'Logout'){
-                                    Get.lazyPut(() => LoginController());
                                     Get.toNamed(AppRoute.loginScreen);
                                   }
                                 },
