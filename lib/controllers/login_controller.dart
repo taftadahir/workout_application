@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:workout_application/configs/behavior.dart';
 import 'package:workout_application/constants/global_constant.dart';
+import 'package:workout_application/views/components/snack_bar_component.dart';
 
 class LoginController extends GetxController {
   late TextEditingController emailController, passwordController;
@@ -42,19 +42,7 @@ class LoginController extends GetxController {
     }
 
     if (hasError) {
-      Get.showSnackbar(
-        GetSnackBar(
-          title: 'Fields validation',
-          message: message,
-          snackPosition: SnackPosition.TOP,
-          dismissDirection: DismissDirection.vertical,
-          backgroundColor: Get.theme.snackBarTheme.backgroundColor ??
-              const Color(0xFF303030),
-          duration: Behavior.snackDuration,
-          snackStyle: SnackStyle.GROUNDED,
-          animationDuration: Behavior.animationDuration,
-        ),
-      );
+      SnackBarComponent.errorSnackBar(title: 'Fields validation', message: message);
     } else {
       loginFormKey.currentState!.save();
 
