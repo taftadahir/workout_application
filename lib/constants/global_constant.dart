@@ -9,4 +9,8 @@ class GlobalConstant {
   static const String emailValidation = 'Please, provide a valid email';
   static const String passwordValidation =
       'Password contains at least 8 characters';
+  static const String firstnameValidation =
+      'Firstname contains at least 2 characters';
+  static const String lastnameValidation =
+      'Lastname contains at least 2 characters';
 }
