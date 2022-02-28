@@ -2,12 +2,12 @@ import 'package:get/get.dart';
 import 'package:workout_application/models/onboarding.dart';
 
 class OnboardingController extends GetxController {
-  int _index = 0;
+  int _screenIndex = 0;
 
-  int get index => _index;
+  int get screenIndex => _screenIndex;
 
-  set index(int index) {
-    _index = index;
+  set screenIndex(int index) {
+    _screenIndex = index;
     update();
   }
 

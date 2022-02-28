@@ -8,7 +8,7 @@ import 'package:workout_application/services/storage_service.dart';
 import 'package:workout_application/views/components/dot_component.dart';
 import 'package:workout_application/views/components/onboarding_component.dart';
 
-import '../components/button_component.dart';
+import 'package:workout_application/views/components/button_component.dart';
 
 class OnboardingScreen extends StatelessWidget {
   const OnboardingScreen({Key? key}) : super(key: key);
@@ -58,7 +58,7 @@ class OnboardingScreen extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            controller.index == 0
+            controller.screenIndex == 0
                 ? Container()
                 : IconButton(
                     icon: const Icon(Icons.arrow_back_ios_new_rounded),
@@ -69,7 +69,7 @@ class OnboardingScreen extends StatelessWidget {
                       );
                     },
                   ),
-            controller.index == OnboardingController.data.length - 1
+            controller.screenIndex == OnboardingController.data.length - 1
                 ? Container()
                 : TextButton(
                     onPressed: () {
@@ -99,7 +99,7 @@ class OnboardingScreen extends StatelessWidget {
         child: PageView.builder(
           physics: Behavior.physics,
           controller: _pageController,
-          onPageChanged: (int index) => controller.index = index,
+          onPageChanged: (int index) => controller.screenIndex = index,
           itemCount: OnboardingController.data.length,
           itemBuilder: (_, index) => OnboardingComponent(
             onboarding: OnboardingController.data[index],
@@ -115,7 +115,7 @@ class OnboardingScreen extends StatelessWidget {
               children: List.generate(
                 OnboardingController.data.length,
                 (index) => DotComponent(
-                  currentIndex: controller.index,
+                  currentIndex: controller.screenIndex,
                   index: index,
                 ),
               ),
@@ -132,12 +132,12 @@ class OnboardingScreen extends StatelessWidget {
               minHeight: 56,
             ),
             child: ButtonComponent(
-              text: controller.index == OnboardingController.data.length - 1
+              text: controller.screenIndex == OnboardingController.data.length - 1
                   ? 'CONTINUE'
                   : 'NEXT',
               onPressed: () {
-                if (controller.index == OnboardingController.data.length - 1) {
-                  controller.index = 0;
+                if (controller.screenIndex == OnboardingController.data.length - 1) {
+                  controller.screenIndex = 0;
                   StorageService.isFirstEntrance = false;
                   Get.offNamed(AppRoute.dashboardScreen);
                 } else {
