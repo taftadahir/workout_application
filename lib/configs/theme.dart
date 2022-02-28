@@ -264,6 +264,21 @@ class Theme {
         ),
       );
 
+  // Text theme
+  static TextTheme get _textThemeLight => TextTheme(
+        headlineSmall: TextStyle(
+          color: lightPalette.greyColor,
+          fontSize: 12.0,
+        ),
+      );
+
+  static TextTheme get _textThemeDark => TextTheme(
+        headlineSmall: TextStyle(
+          color: darkPalette.greyColor,
+          fontSize: 12.0,
+        ),
+      );
+
   // Theme Data
   static final light = ThemeData(
     backgroundColor: lightPalette.backgroundColor,
@@ -282,6 +297,7 @@ class Theme {
     elevatedButtonTheme: _elevatedButtonThemeDataLight,
     inputDecorationTheme: _inputDecorationThemeLight,
     snackBarTheme: _snackBarThemeDataLight,
+    textTheme: _textThemeLight,
   );
 
   static final dark = ThemeData(
@@ -301,5 +317,6 @@ class Theme {
     elevatedButtonTheme: _elevatedButtonThemeDataDark,
     inputDecorationTheme: _inputDecorationThemeDark,
     snackBarTheme: _snackBarThemeDataDark,
+    textTheme: _textThemeDark,
   );
 }
