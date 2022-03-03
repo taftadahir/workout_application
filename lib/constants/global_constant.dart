@@ -4,6 +4,7 @@ class GlobalConstant {
   // Title Type
   static const String authTitle = 'auth_title';
   static const String fieldTitle = 'field_title';
+  static const String sectionTitle = 'section_title';
 
   // Messages
   static const String emailValidation = 'Please, provide a valid email';
