@@ -5,16 +5,18 @@ import 'package:workout_application/services/theme_service.dart';
 import 'package:workout_application/views/components/app_bar_component.dart';
 import 'package:workout_application/views/components/bottom_bar_component.dart';
 import 'package:workout_application/views/screens/drawer_screen.dart';
+import 'package:workout_application/views/screens/home_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
   static final List<Widget> _screens = [
     Container(
-      color: Colors.redAccent,
+      color: Colors.teal,
     ),
+    const HomeScreen(),
     Container(
-      color: Colors.blueAccent,
+      color: Colors.deepPurpleAccent,
       child: Center(
         child: TextButton(
           style: ButtonStyle(
@@ -31,9 +33,6 @@ class DashboardScreen extends StatelessWidget {
           child: const Text('Switch Theme'),
         ),
       ),
-    ),
-    Container(
-      color: Colors.deepPurpleAccent,
     ),
   ];
 
@@ -87,8 +86,7 @@ class DashboardScreen extends StatelessWidget {
               boxShadow: controller.isDrawerOpen
                   ? [
                 BoxShadow(
-                  color:
-                  Get.theme.shadowColor,
+                  color: Get.theme.shadowColor,
                   offset: const Offset(-8, 0),
                   spreadRadius: 8,
                   blurRadius: 16,

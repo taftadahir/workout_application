@@ -6,8 +6,6 @@ import 'package:get/get.dart';
 import 'package:workout_application/constants/global_constant.dart';
 import 'package:workout_application/services/storage_service.dart';
 import 'package:workout_application/services/theme_service.dart';
-import 'package:workout_application/views/screens/dashboard_screen.dart';
-import 'package:workout_application/views/screens/onboarding_screen.dart';
 
 class App extends StatelessWidget {
   const App({Key? key}) : super(key: key);
