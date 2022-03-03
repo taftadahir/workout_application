@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_application/constants/global_constant.dart';
@@ -23,6 +22,10 @@ class TitleComponent extends StatelessWidget {
         _fontSize = 24.0;
         _textAlign = TextAlign.center;
         break;
+      case GlobalConstant.sectionTitle:
+        _fontSize = 24.0;
+        _textAlign = TextAlign.start;
+        break;
     }
 
     return Text(
@@ -31,7 +34,7 @@ class TitleComponent extends StatelessWidget {
       style: TextStyle(
         fontSize: _fontSize,
         fontWeight: FontWeight.bold,
-        color: Get.textTheme.labelMedium?.color,
+        color: context.textTheme.labelMedium?.color,
       ),
     );
   }
