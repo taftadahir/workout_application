@@ -5,6 +5,9 @@ class GlobalConstant {
   static const String authTitle = 'auth_title';
   static const String fieldTitle = 'field_title';
   static const String sectionTitle = 'section_title';
+  static const String workoutDetailTitle = 'workout_detail_title';
+  static const String workoutTitle = 'workout_title';
+  static const String calendarMonth = 'calendar_month';
 
   // Messages
   static const String emailValidation = 'Please, provide a valid email';
@@ -14,4 +17,5 @@ class GlobalConstant {
       'Firstname contains at least 2 characters';
   static const String lastnameValidation =
       'Lastname contains at least 2 characters';
+  static const String exerciseNotFound = 'Exercise not found';
 }
