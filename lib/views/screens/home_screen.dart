@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:workout_application/configs/behavior.dart';
 import 'package:workout_application/constants/global_constant.dart';
-import 'package:workout_application/controllers/dashboard_controller.dart';
+import 'package:workout_application/controllers/home_controller.dart';
 import 'package:workout_application/views/components/program_card_component.dart';
 import 'package:workout_application/views/components/title_component.dart';
 
@@ -37,10 +37,10 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          ...DashboardController.popularPrograms
+          ...HomeController.popularPrograms
               .map(
                 (program) => ProgramCardComponent(program: program),
-              )
+          )
               .toList(),
           const SizedBox(
             height: 24,
@@ -67,10 +67,10 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          ...DashboardController.calisthenicPrograms
+          ...HomeController.calisthenicPrograms
               .map(
                 (program) => ProgramCardComponent(program: program),
-              )
+          )
               .toList(),
           const SizedBox(
             height: 24,
@@ -97,10 +97,10 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          ...DashboardController.bodyBuildPrograms
+          ...HomeController.bodyBuildPrograms
               .map(
                 (program) => ProgramCardComponent(program: program),
-              )
+          )
               .toList(),
           const SizedBox(
             height: 24,
@@ -127,10 +127,10 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          ...DashboardController.homeWorkoutPrograms
+          ...HomeController.homeWorkoutPrograms
               .map(
                 (program) => ProgramCardComponent(program: program),
-              )
+          )
               .toList(),
           const SizedBox(
             height: 24,
@@ -157,10 +157,10 @@ class HomeScreen extends StatelessWidget {
               ],
             ),
           ),
-          ...DashboardController.boxingPrograms
+          ...HomeController.boxingPrograms
               .map(
                 (program) => ProgramCardComponent(program: program),
-              )
+          )
               .toList(),
         ],
       ),
