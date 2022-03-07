@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:workout_application/configs/behavior.dart';
+import 'package:workout_application/configs/layout.dart';
 import 'package:workout_application/constants/global_constant.dart';
 import 'package:workout_application/controllers/home_controller.dart';
 import 'package:workout_application/views/components/program_card_component.dart';
@@ -11,7 +12,9 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(
+        horizontal: Layout.horizontalScreenPadding,
+      ),
       child: ListView(
         physics: Behavior.physics,
         children: [
@@ -40,7 +43,7 @@ class HomeScreen extends StatelessWidget {
           ...HomeController.popularPrograms
               .map(
                 (program) => ProgramCardComponent(program: program),
-          )
+              )
               .toList(),
           const SizedBox(
             height: 24,
@@ -70,7 +73,7 @@ class HomeScreen extends StatelessWidget {
           ...HomeController.calisthenicPrograms
               .map(
                 (program) => ProgramCardComponent(program: program),
-          )
+              )
               .toList(),
           const SizedBox(
             height: 24,
@@ -100,7 +103,7 @@ class HomeScreen extends StatelessWidget {
           ...HomeController.bodyBuildPrograms
               .map(
                 (program) => ProgramCardComponent(program: program),
-          )
+              )
               .toList(),
           const SizedBox(
             height: 24,
@@ -130,7 +133,7 @@ class HomeScreen extends StatelessWidget {
           ...HomeController.homeWorkoutPrograms
               .map(
                 (program) => ProgramCardComponent(program: program),
-          )
+              )
               .toList(),
           const SizedBox(
             height: 24,
@@ -160,7 +163,7 @@ class HomeScreen extends StatelessWidget {
           ...HomeController.boxingPrograms
               .map(
                 (program) => ProgramCardComponent(program: program),
-          )
+              )
               .toList(),
         ],
       ),
