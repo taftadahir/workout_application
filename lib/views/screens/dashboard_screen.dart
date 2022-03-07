@@ -6,14 +6,13 @@ import 'package:workout_application/views/components/app_bar_component.dart';
 import 'package:workout_application/views/components/bottom_bar_component.dart';
 import 'package:workout_application/views/screens/drawer_screen.dart';
 import 'package:workout_application/views/screens/home_screen.dart';
+import 'package:workout_application/views/screens/routine_screen.dart';
 
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({Key? key}) : super(key: key);
 
   static final List<Widget> _screens = [
-    Container(
-      color: Colors.teal,
-    ),
+    const RoutineScreen(),
     const HomeScreen(),
     Container(
       color: Colors.deepPurpleAccent,
@@ -59,17 +58,17 @@ class DashboardScreen extends StatelessWidget {
         },
         child: GestureDetector(
           onTap: controller.closeDrawer,
-          onHorizontalDragStart: (details) => controller.isDragging = true,
-          onHorizontalDragUpdate: (details) {
-            if (!controller.isDragging) return;
-            const delta = 1;
-            if (details.delta.dx > delta) {
-              controller.openDrawer();
-            } else if (details.delta.dx < -delta) {
-              controller.closeDrawer();
-            }
-            controller.isDragging = false;
-          },
+          // onHorizontalDragStart: (details) => controller.isDragging = true,
+          // onHorizontalDragUpdate: (details) {
+          //   if (!controller.isDragging) return;
+          //   const delta = 1;
+          //   if (details.delta.dx > delta) {
+          //     controller.openDrawer();
+          //   } else if (details.delta.dx < -delta) {
+          //     controller.closeDrawer();
+          //   }
+          //   controller.isDragging = false;
+          // },
           child: AnimatedContainer(
             transform: Matrix4.translationValues(
               controller.xOffset,
@@ -85,13 +84,13 @@ class DashboardScreen extends StatelessWidget {
               ),
               boxShadow: controller.isDrawerOpen
                   ? [
-                BoxShadow(
-                  color: Get.theme.shadowColor,
-                  offset: const Offset(-8, 0),
-                  spreadRadius: 8,
-                  blurRadius: 16,
-                )
-              ]
+                      BoxShadow(
+                        color: Get.theme.shadowColor,
+                        offset: const Offset(-8, 0),
+                        spreadRadius: 8,
+                        blurRadius: 16,
+                      )
+                    ]
                   : [],
             ),
             child: AbsorbPointer(
