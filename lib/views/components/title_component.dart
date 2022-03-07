@@ -42,6 +42,11 @@ class TitleComponent extends StatelessWidget {
         _textAlign = TextAlign.start;
         _fontWeight = FontWeight.bold;
         break;
+      case GlobalConstant.exerciseCardTitle:
+        _fontSize = 16.0;
+        _textAlign = TextAlign.start;
+        _fontWeight = FontWeight.w500;
+        break;
     }
 
     return Text(
