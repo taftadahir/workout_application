@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:workout_application/constants/global_constant.dart';
 import 'package:workout_application/models/exercise.dart';
 import 'package:workout_application/views/components/title_component.dart';
+import 'package:workout_application/views/screens/exercise_view_screen.dart';
 
 class ExerciseCardComponent extends StatelessWidget {
   final Exercise exercise;
@@ -15,7 +16,7 @@ class ExerciseCardComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+    onTap: () => Get.to(ExerciseViewScreen(exercise: exercise)),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
