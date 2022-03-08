@@ -9,6 +9,13 @@ class AppRoute {
   static const String onboardingScreen = '/onboarding_screen';
   static const String loginScreen = '/login_screen';
   static const String registerScreen = '/register_screen';
+  static const String favoriteScreen = '/favorite_screen';
+  static const String historyScreen = '/history_screen';
+  static const String aboutUsScreen = '/about_us_screen';
+  static const String exercisePackScreen = '/exercise_pack_screen';
+  static const String profileScreen = '/profile_screen';
+  static const String settingsScreen = '/settings_screen';
+  static const String logoutScreen = '/logout_screen';
 
   static List<GetPage<dynamic>> get getPages => [
         GetPage(

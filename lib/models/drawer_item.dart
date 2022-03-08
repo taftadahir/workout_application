@@ -21,37 +21,37 @@ const DrawerItem _home = DrawerItem(
 const DrawerItem _favorites = DrawerItem(
   title: 'Favorite',
   icon: Icons.favorite_border_rounded,
-  type: 'Favorite',
+  type: AppRoute.favoriteScreen,
 );
 const DrawerItem _history = DrawerItem(
   title: 'History',
   icon: Icons.bar_chart_rounded,
-  type: 'History',
+  type: AppRoute.historyScreen,
 );
 const DrawerItem _aboutUs = DrawerItem(
   title: 'About Us',
   icon: Icons.bubble_chart_rounded,
-  type: 'About Us',
+  type: AppRoute.aboutUsScreen,
 );
 const DrawerItem _exercisePack = DrawerItem(
   title: 'Exercise Pack',
   icon: Icons.bolt_rounded,
-  type: 'ExercisePack',
+  type: AppRoute.exercisePackScreen,
 );
 const DrawerItem _profile = DrawerItem(
   title: 'Profile',
   icon: Icons.account_circle_rounded,
-  type: 'Profile',
+  type: AppRoute.profileScreen,
 );
 const DrawerItem _settings = DrawerItem(
   title: 'Settings',
   icon: Icons.settings,
-  type: 'Settings',
+  type: AppRoute.settingsScreen,
 );
 const DrawerItem _logout = DrawerItem(
   title: 'Logout',
   icon: Icons.logout,
-  type: 'Logout',
+  type: AppRoute.logoutScreen,
 );
 const DrawerItem _onboarding = DrawerItem(
   title: 'Onboarding',
