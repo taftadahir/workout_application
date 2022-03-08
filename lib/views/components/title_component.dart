@@ -30,7 +30,7 @@ class TitleComponent extends StatelessWidget {
       case GlobalConstant.workoutDetailTitle:
         _fontSize = 16.0;
         _textAlign = TextAlign.start;
-        _fontWeight = FontWeight.w600;
+        _fontWeight = FontWeight.w500;
         break;
       case GlobalConstant.calendarMonth:
         _fontSize = 20.0;
@@ -46,6 +46,11 @@ class TitleComponent extends StatelessWidget {
         _fontSize = 16.0;
         _textAlign = TextAlign.start;
         _fontWeight = FontWeight.w500;
+        break;
+      case GlobalConstant.exerciseViewTitle:
+        _fontSize = 24.0;
+        _textAlign = TextAlign.start;
+        _fontWeight = FontWeight.w600;
         break;
     }
 
