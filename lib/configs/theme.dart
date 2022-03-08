@@ -270,12 +270,22 @@ class Theme {
           color: lightPalette.greyColor,
           fontSize: 12.0,
         ),
+        bodyMedium: TextStyle(
+          color: lightPalette.textLightColor,
+          fontSize: 16,
+          height: 1.8,
+        ),
       );
 
   static TextTheme get _textThemeDark => TextTheme(
         headlineSmall: TextStyle(
           color: darkPalette.greyColor,
           fontSize: 12.0,
+        ),
+        bodyMedium: TextStyle(
+          color: darkPalette.textLightColor,
+          fontSize: 16,
+          height: 1.8,
         ),
       );
 
