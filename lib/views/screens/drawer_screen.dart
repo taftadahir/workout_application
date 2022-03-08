@@ -97,6 +97,9 @@ class DrawerScreen extends StatelessWidget {
                                   size: 24.0,
                                 ),
                                 onTap: () {
+                                  if(item.type == 'Favorite'){
+                                    controller.screenIndex = 2;
+                                  }
                                   controller.closeDrawer();
                                   if (item.type == AppRoute.onboardingScreen) {
                                     Get.toNamed(AppRoute.onboardingScreen);
