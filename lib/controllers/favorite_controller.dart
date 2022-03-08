@@ -17,6 +17,19 @@ class FavoriteController extends GetxController {
         name: 'Push Up - $index',
         published: true,
         image: 'back_lever.png',
+        description: index % 2 == 0
+            ? 'In the previous post, I wrote about what the box '
+                'constraints are and how they work at a very basic level. In this'
+                ' post I will talk about how they work with Row and Column '
+                'widgets. In the previous post, I wrote about what the box '
+                'constraints are and how they work at a very basic level. In this'
+                ' post I will talk about how they work with Row and Column '
+                'widgets. In the previous post, I wrote about what the box '
+                'constraints are and how they work at a very basic level. In this post I will talk about how they work with Row and Column widgets. In the previous post, I wrote about what the box constraints are and how they work at a very basic level. In this post I will talk about how they work with Row and Column widgets. In the previous post, I wrote about what the box constraints are and how they work at a very basic level. In this post I will talk about how they work with Row and Column widgets. In the previous post, I wrote about what the box constraints are and how they work at a very basic level. In this post I will talk about how they work with Row and Column widgets. In the previous post, I wrote about what the box constraints are and how they work at a very basic level. In this post I will talk about how they work with Row and Column widgets. In the previous post, I wrote about what the box constraints are and how they work at a very basic level. In this post I will talk about how they work with Row and Column widgets.'
+            : 'In the previous post, I wrote about what the box '
+                'constraints are and how they work at a very basic level. In this'
+                ' post I will talk about how they work with Row and Column '
+                'widgets. In the previous post, I wrote about what the box ',
       ),
     );
   }
