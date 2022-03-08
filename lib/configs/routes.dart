@@ -1,8 +1,8 @@
 import 'package:get/get.dart';
 import 'package:workout_application/views/screens/dashboard_screen.dart';
-import 'package:workout_application/views/screens/login_screen.dart';
+import 'package:workout_application/views/screens/auth/login_screen.dart';
 import 'package:workout_application/views/screens/onboarding_screen.dart';
-import 'package:workout_application/views/screens/register_screen.dart';
+import 'package:workout_application/views/screens/auth/register_screen.dart';
 
 class AppRoute {
   static const String dashboardScreen = '/dashboard_screen';
