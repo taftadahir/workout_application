@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:workout_application/controllers/dashboard_controller.dart';
+import 'package:workout_application/controllers/favorite_controller.dart';
 import 'package:workout_application/controllers/home_controller.dart';
 import 'package:workout_application/controllers/login_controller.dart';
 import 'package:workout_application/controllers/onboarding_controller.dart';
@@ -7,7 +8,6 @@ import 'package:workout_application/controllers/register_controller.dart';
 import 'package:workout_application/controllers/routine_controller.dart';
 
 class AppBinding extends Bindings {
-
   @override
   void dependencies() {
     // Implement dependencies
@@ -19,5 +19,6 @@ class AppBinding extends Bindings {
     Get.lazyPut(() => RegisterController(), fenix: true);
     Get.lazyPut(() => RoutineController(), fenix: true);
     Get.lazyPut(() => HomeController(), fenix: true);
+    Get.lazyPut(() => FavoriteController(), fenix: true);
   }
 }
