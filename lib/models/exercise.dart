@@ -3,6 +3,7 @@ class Exercise {
   final int userId;
   final String sysId;
   final String name;
+  final String? image;
   final bool published;
   final bool? timeBased;
   final bool? repBased;
@@ -18,6 +19,7 @@ class Exercise {
     required this.sysId,
     required this.name,
     required this.published,
+    this.image,
     this.timeBased,
     this.repBased,
     this.useWeight,
