@@ -10,7 +10,7 @@ import 'package:workout_application/views/components/title_component.dart';
 class WorkoutCardComponent extends StatelessWidget {
   final Workout workout;
   final WorkoutCardStyle style;
-  final double _cardHeight = 112.0;
+  final double _cardHeight = 120.0;
   final double _spaceBetweenDetail = 24.0;
   final double _radius = 16.0;
 
@@ -73,7 +73,7 @@ class WorkoutCardComponent extends StatelessWidget {
               scrollDirection: Axis.horizontal,
               physics: Behavior.physics,
               child: Row(
-                mainAxisSize: MainAxisSize.max,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   // Set
                   workout.set == null
@@ -176,13 +176,13 @@ class WorkoutCardComponent extends StatelessWidget {
         ? [
             _workoutName,
             const SizedBox(
-              height: 16,
+              height: 4,
             ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               physics: Behavior.physics,
               child: Row(
-                mainAxisSize: MainAxisSize.max,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   // Set
                   workout.set == null
@@ -192,9 +192,6 @@ class WorkoutCardComponent extends StatelessWidget {
                             const TitleComponent(
                               text: 'Set',
                               type: GlobalConstant.workoutDetailTitle,
-                            ),
-                            const SizedBox(
-                              height: 8,
                             ),
                             Text('${workout.set}'),
                           ],
@@ -209,9 +206,6 @@ class WorkoutCardComponent extends StatelessWidget {
                             const TitleComponent(
                               text: 'Rep',
                               type: GlobalConstant.workoutDetailTitle,
-                            ),
-                            const SizedBox(
-                              height: 8,
                             ),
                             Text('${workout.reps}'),
                           ],
@@ -228,9 +222,6 @@ class WorkoutCardComponent extends StatelessWidget {
                               text: 'Time',
                               type: GlobalConstant.workoutDetailTitle,
                             ),
-                            const SizedBox(
-                              height: 8,
-                            ),
                             Text('${workout.time} sec'),
                           ],
                         )
@@ -245,9 +236,6 @@ class WorkoutCardComponent extends StatelessWidget {
                             const TitleComponent(
                               text: 'Weight',
                               type: GlobalConstant.workoutDetailTitle,
-                            ),
-                            const SizedBox(
-                              height: 8,
                             ),
                             Text('${workout.weight} kg'),
                           ],
@@ -264,9 +252,6 @@ class WorkoutCardComponent extends StatelessWidget {
                             const TitleComponent(
                               text: 'Rest',
                               type: GlobalConstant.workoutDetailTitle,
-                            ),
-                            const SizedBox(
-                              height: 8,
                             ),
                             Text('${workout.restTime} sec'),
                           ],
