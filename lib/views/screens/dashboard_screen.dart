@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_application/controllers/dashboard_controller.dart';
-import 'package:workout_application/services/theme_service.dart';
 import 'package:workout_application/views/components/app_bar_component.dart';
 import 'package:workout_application/views/components/bottom_bar_component.dart';
 import 'package:workout_application/views/screens/drawer_screen.dart';
+import 'package:workout_application/views/screens/favorite_screen.dart';
 import 'package:workout_application/views/screens/home_screen.dart';
 import 'package:workout_application/views/screens/routine_screen.dart';
 
@@ -14,25 +14,7 @@ class DashboardScreen extends StatelessWidget {
   static final List<Widget> _screens = [
     const RoutineScreen(),
     const HomeScreen(),
-    Container(
-      color: Colors.deepPurpleAccent,
-      child: Center(
-        child: TextButton(
-          style: ButtonStyle(
-            backgroundColor: MaterialStateProperty.all(Colors.black45),
-            padding: MaterialStateProperty.all(
-              const EdgeInsets.symmetric(
-                horizontal: 24.0,
-                vertical: 8.0,
-              ),
-            ),
-            foregroundColor: MaterialStateProperty.all(Colors.white),
-          ),
-          onPressed: () => ThemeService.switchTheme(),
-          child: const Text('Switch Theme'),
-        ),
-      ),
-    ),
+    const FavoriteScreen(),
   ];
 
   @override
