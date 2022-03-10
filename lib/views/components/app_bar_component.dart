@@ -1,19 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_application/controllers/dashboard_controller.dart';
+import 'package:workout_application/services/theme_service.dart';
+import 'package:workout_application/views/screens/rest_time_screen.dart';
 
 class AppBarComponent {
-  static  final Widget _menu = GetBuilder(
+  static final Widget _menu = GetBuilder(
       init: DashboardController(),
       builder: (DashboardController controller) {
         return IconButton(
-          onPressed: ()=>controller.openDrawer(),
+          onPressed: () => controller.openDrawer(),
           icon: const Icon(
             Icons.menu_rounded,
           ),
         );
-      }
-  );
+      });
 
   static AppBar getAppBar({
     Widget? title,
@@ -41,7 +42,11 @@ class AppBarComponent {
                 horizontal: 8.0,
               ),
               child: TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  Get.to(
+                    const RestTimeScreen(),
+                  );
+                },
                 child: const Text('Start'),
               ),
             ),
@@ -53,12 +58,15 @@ class AppBarComponent {
         return getAppBar(
           leading: _menu,
           title: const Text('Home'),
-          actions: const [
-            Icon(
-              Icons.account_circle_rounded,
-              size: 32.0,
+          actions: [
+            const IconButton(
+              icon: Icon(
+                Icons.invert_colors_rounded,
+                size: 32.0,
+              ),
+              onPressed: ThemeService.switchTheme,
             ),
-            SizedBox(width: 8.0),
+            const SizedBox(width: 8.0),
           ],
         );
       case 2:
