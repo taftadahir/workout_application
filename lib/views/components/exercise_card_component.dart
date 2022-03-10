@@ -16,11 +16,11 @@ class ExerciseCardComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-    onTap: () => Get.to(ExerciseViewScreen(exercise: exercise)),
+      onTap: () => Get.to(ExerciseViewScreen(exercise: exercise)),
       child: Container(
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
-          color: Get.theme.cardColor,
+          color: context.theme.cardColor,
         ),
         child: Padding(
           padding: const EdgeInsets.symmetric(
