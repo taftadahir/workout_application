@@ -10,6 +10,7 @@ class GlobalConstant {
   static const String calendarMonth = 'calendar_month';
   static const String exerciseCardTitle = 'exercise_card_title';
   static const String exerciseViewTitle = 'exercise_view_title';
+  static const String restScreenTitle = 'rest_screen_title';
 
   // Messages
   static const String emailValidation = 'Please, provide a valid email';
