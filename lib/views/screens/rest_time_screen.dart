@@ -86,7 +86,12 @@ class RestTimeScreen extends StatelessWidget {
                           onPressed: () {
                             _controller.reset();
                           },
-                          child: const Text('Skip'),
+                          child: const Text(
+                            'Skip',
+                            style: TextStyle(
+                              color: Colors.white,
+                            ),
+                          ),
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                                 context.theme.primaryColor),
