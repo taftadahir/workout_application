@@ -20,7 +20,7 @@ class BottomBarComponent extends StatelessWidget {
             label: 'Routine',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.home_max_rounded),
+            icon: Icon(Icons.grid_view_rounded),
             label: 'Home',
           ),
           BottomNavigationBarItem(
