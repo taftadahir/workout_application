@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_application/constants/global_constant.dart';
@@ -51,6 +52,11 @@ class TitleComponent extends StatelessWidget {
         _fontSize = 24.0;
         _textAlign = TextAlign.start;
         _fontWeight = FontWeight.w600;
+        break;
+      case GlobalConstant.restScreenTitle:
+        _fontWeight = FontWeight.bold;
+        _fontSize = 32.0;
+        _textAlign = TextAlign.center;
         break;
     }
 
