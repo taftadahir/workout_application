@@ -30,45 +30,47 @@ class ExerciseViewScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(
-          horizontal: Layout.horizontalScreenPadding,
-          vertical: Layout.verticalScreenPadding,
-        ),
-        child: SingleChildScrollView(
-          physics: Behavior.physics,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              exercise.image == null
-                  ? Container()
-                  : Container(
-                      margin: const EdgeInsets.only(
-                        bottom: 32.0,
-                        top: 8.0,
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(
+            horizontal: Layout.horizontalScreenPadding,
+            vertical: Layout.verticalScreenPadding,
+          ),
+          child: SingleChildScrollView(
+            physics: Behavior.physics,
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                exercise.image == null
+                    ? Container()
+                    : Container(
+                        margin: const EdgeInsets.only(
+                          bottom: 32.0,
+                          top: 8.0,
+                        ),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(7.0),
+                        ),
+                        child: Image.asset(
+                          'assets/images/${exercise.image}',
+                          fit: BoxFit.cover,
+                          width: Get.width,
+                        ),
                       ),
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(7.0),
-                      ),
-                      child: Image.asset(
-                        'assets/images/${exercise.image}',
-                        fit: BoxFit.cover,
-                        width: Get.width,
-                      ),
-                    ),
-              TitleComponent(
-                text: exercise.name,
-                type: GlobalConstant.exerciseViewTitle,
-              ),
-              SizedBox(
-                height: exercise.description == null ? 0 : 16.0,
-              ),
-              Text(
-                exercise.description ?? '',
-                style: context.theme.textTheme.bodyMedium,
-              ),
-            ],
+                TitleComponent(
+                  text: exercise.name,
+                  type: GlobalConstant.exerciseViewTitle,
+                ),
+                SizedBox(
+                  height: exercise.description == null ? 0 : 16.0,
+                ),
+                Text(
+                  exercise.description ?? '',
+                  style: context.theme.textTheme.bodyMedium,
+                ),
+              ],
+            ),
           ),
         ),
       ),
