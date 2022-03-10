@@ -22,9 +22,7 @@ class Theme {
           ),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                8.0,
-              ),
+              borderRadius: BorderRadius.circular(32),
             ),
           ),
           textStyle: MaterialStateProperty.all(
@@ -32,6 +30,7 @@ class Theme {
               fontSize: 16.0,
             ),
           ),
+          minimumSize: MaterialStateProperty.all(const Size(72, 40)),
         ),
       );
 
@@ -51,9 +50,7 @@ class Theme {
           ),
           shape: MaterialStateProperty.all(
             RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(
-                8.0,
-              ),
+              borderRadius: BorderRadius.circular(32),
             ),
           ),
           textStyle: MaterialStateProperty.all(
@@ -61,6 +58,7 @@ class Theme {
               fontSize: 16.0,
             ),
           ),
+          minimumSize: MaterialStateProperty.all(const Size(72, 40)),
         ),
       );
 
@@ -275,6 +273,11 @@ class Theme {
           fontSize: 16,
           height: 1.8,
         ),
+        titleSmall: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          color: lightPalette.textColor,
+        ),
       );
 
   static TextTheme get _textThemeDark => TextTheme(
@@ -286,6 +289,11 @@ class Theme {
           color: darkPalette.textLightColor,
           fontSize: 16,
           height: 1.8,
+        ),
+        titleSmall: TextStyle(
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
+          color: darkPalette.textColor,
         ),
       );
 
