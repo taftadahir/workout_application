@@ -7,5 +7,6 @@ class ExerciseController {
         sysId: 'Exercise0',
         name: 'Push Up',
         published: true,
+        image: 'back_lever.png',
       );
 }
