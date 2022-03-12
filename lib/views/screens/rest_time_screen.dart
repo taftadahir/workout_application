@@ -8,15 +8,29 @@ import 'package:workout_application/models/workout.dart';
 import 'package:workout_application/views/components/app_bar_component.dart';
 import 'package:workout_application/views/components/title_component.dart';
 import 'package:workout_application/views/components/workout_card_component.dart';
+import 'package:workout_application/views/screens/workout_on_screen.dart';
 
 class RestTimeScreen extends StatelessWidget {
   const RestTimeScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    CounterController _controller = Get.put(CounterController());
+    CounterController _controller = Get.find();
     _controller.count = 240;
     _controller.start();
+    Workout _workout = Workout(
+      id: 1,
+      exerciseId: 1,
+      programId: 1,
+      useWeight: true,
+      weight: 70,
+      timeBased: false,
+      time: 45,
+      repBased: true,
+      reps: 7,
+      set: 3,
+      restTime: 180,
+    );
     return Scaffold(
       appBar: AppBarComponent.getAppBar(
         leading: IconButton(
@@ -50,21 +64,23 @@ class RestTimeScreen extends StatelessWidget {
                       height: 32,
                     ),
                     Center(
-                      child:
-                          GetBuilder<CounterController>(builder: (controller) {
-                        int _min = controller.count ~/ 60;
-                        int _sec = controller.count % 60;
-                        String _time = (_min < 10 ? '0$_min : ' : '$_min : ') +
-                            (_sec < 10 ? '0$_sec' : '$_sec');
-                        return Text(
-                          _time,
-                          style: TextStyle(
-                            fontSize: Get.width * .2,
-                            fontWeight: FontWeight.bold,
-                            color: context.theme.primaryColor,
-                          ),
-                        );
-                      }),
+                      child: GetBuilder<CounterController>(
+                        builder: (controller) {
+                          int _min = controller.count ~/ 60;
+                          int _sec = controller.count % 60;
+                          String _time =
+                              (_min < 10 ? '0$_min : ' : '$_min : ') +
+                                  (_sec < 10 ? '0$_sec' : '$_sec');
+                          return Text(
+                            _time,
+                            style: TextStyle(
+                              fontSize: Get.width * .2,
+                              fontWeight: FontWeight.bold,
+                              color: context.theme.primaryColor,
+                            ),
+                          );
+                        },
+                      ),
                     ),
                     const SizedBox(
                       height: 24,
@@ -85,6 +101,9 @@ class RestTimeScreen extends StatelessWidget {
                         TextButton(
                           onPressed: () {
                             _controller.reset();
+                            Get.off(
+                              WorkoutOnScreen(workout: _workout),
+                            );
                           },
                           child: const Text(
                             'Skip',
@@ -138,19 +157,7 @@ class RestTimeScreen extends StatelessWidget {
                     height: 16,
                   ),
                   WorkoutCardComponent(
-                    workout: Workout(
-                      id: 1,
-                      exerciseId: 1,
-                      programId: 1,
-                      useWeight: true,
-                      weight: 70,
-                      timeBased: true,
-                      time: 45,
-                      repBased: true,
-                      reps: 7,
-                      set: 3,
-                      restTime: 180,
-                    ),
+                    workout: _workout,
                     style: WorkoutCardStyle.style2,
                   ),
                 ],
