@@ -4,14 +4,20 @@ import 'package:workout_application/controllers/dashboard_controller.dart';
 import 'package:workout_application/services/theme_service.dart';
 import 'package:workout_application/views/screens/rest_time_screen.dart';
 
+import 'dart:math' as math;
+
 class AppBarComponent {
   static final Widget _menu = GetBuilder(
       init: DashboardController(),
       builder: (DashboardController controller) {
         return IconButton(
           onPressed: () => controller.openDrawer(),
-          icon: const Icon(
-            Icons.menu_rounded,
+          icon: Transform.rotate(
+            angle: math.pi / 2,
+            child: const Icon(
+              // Icons.menu_rounded,
+              Icons.bar_chart_rounded,
+            ),
           ),
         );
       });
