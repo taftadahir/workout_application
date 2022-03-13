@@ -7,18 +7,20 @@ class ProgramDayCardComponent extends StatelessWidget {
   final String title;
   final String description;
   final bool completed;
+  final void Function()? onTap;
 
   const ProgramDayCardComponent({
     Key? key,
     required this.title,
     required this.description,
     required this.completed,
+    required this.onTap,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: onTap,
       child: Container(
         height: 88,
         decoration: BoxDecoration(
