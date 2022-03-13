@@ -12,6 +12,8 @@ class GlobalConstant {
   static const String exerciseViewTitle = 'exercise_view_title';
   static const String restScreenTitle = 'rest_screen_title';
   static const String programDayTitle = 'program_day_title';
+  static const String settingItemTitle = 'setting_item_title';
+  static const String settingGroupTitle = 'setting_group_title';
 
   // Messages
   static const String emailValidation = 'Please, provide a valid email';
