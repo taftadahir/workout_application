@@ -24,7 +24,7 @@ class ProgramDayViewScreen extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBarComponent.getAppBar(
-        title: Text(program.name),
+        title: Text('Day $day - ' + program.name),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios_rounded),
           onPressed: () => Get.back(),

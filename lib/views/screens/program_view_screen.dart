@@ -93,7 +93,7 @@ class ProgramViewScreen extends StatelessWidget {
               completed: i % 3 == 0,
               onTap: () {
                 Get.to(
-                  ProgramDayViewScreen(program: program, day: i),
+                  ProgramDayViewScreen(program: program, day: i + 1),
                 );
               },
             ),
@@ -112,7 +112,7 @@ class ProgramViewScreen extends StatelessWidget {
               completed: i % 3 == 0,
               onTap: () {
                 Get.to(
-                  ProgramDayViewScreen(program: program, day: i),
+                  ProgramDayViewScreen(program: program, day: i + 1),
                 );
               },
             ),
