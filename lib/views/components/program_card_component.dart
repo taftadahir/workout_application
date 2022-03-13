@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_application/models/program.dart';
+import 'package:workout_application/views/screens/program_view_screen.dart';
 
 class ProgramCardComponent extends StatelessWidget {
   final Program program;
@@ -13,7 +14,9 @@ class ProgramCardComponent extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () {},
+      onTap: () {
+        Get.to(ProgramViewScreen(program: program));
+      },
       child: Container(
         height: 112,
         width: double.maxFinite,
