@@ -13,6 +13,7 @@ import 'package:workout_application/views/components/title_component.dart';
 
 class WorkoutOnScreen extends StatelessWidget {
   final Workout workout;
+
   const WorkoutOnScreen({
     Key? key,
     required this.workout,
@@ -57,81 +58,79 @@ class WorkoutOnScreen extends StatelessWidget {
         ),
       ),
       body: SafeArea(
-        child: Padding(
+        child: SingleChildScrollView(
+          physics: Behavior.physics,
           padding: const EdgeInsets.symmetric(
             horizontal: Layout.horizontalScreenPadding,
             vertical: Layout.horizontalScreenPadding,
           ),
-          child: SingleChildScrollView(
-            physics: Behavior.physics,
-            child: Container(
-              constraints: BoxConstraints(
-                minHeight: Get.height -
-                    MediaQuery.of(context).viewInsets.bottom -
-                    Get.mediaQuery.padding.top -
-                    Get.mediaQuery.padding.bottom -
-                    120,
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    children: [
-                      Image.asset(
-                        'assets/images/${_exercise!.image}',
-                        fit: BoxFit.cover,
-                        width: Get.width,
-                      ),
-                      const SizedBox(
-                        height: 24,
-                      ),
-                      TitleComponent(
-                        text: _exercise.name,
-                        type: GlobalConstant.exerciseViewTitle,
-                      ),
-                      const SizedBox(
-                        height: 40,
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      workout.timeBased
-                          ? GetBuilder<CounterController>(
-                        builder: (controller) {
-                          int _min = controller.count ~/ 60;
-                          int _sec = controller.count % 60;
-                          String _time =
-                              (_min < 10 ? '0$_min : ' : '$_min : ') +
-                                  (_sec < 10 ? '0$_sec' : '$_sec');
-                          return Text(
-                            _time,
-                            style: TextStyle(
-                              fontSize: Get.width * .2,
-                              fontWeight: FontWeight.bold,
-                              color: context.theme.primaryColor,
-                            ),
-                          );
-                        },
-                      )
-                          : RichText(text: TextSpan(children: _textForRep)),
-                      const SizedBox(height: 40),
-                    ],
-                  ),
-                  ConstrainedBox(
-                    constraints: const BoxConstraints(
-                      minWidth: 240,
-                      maxHeight: 56,
-                      maxWidth: 320,
-                      minHeight: 56,
+          child: Container(
+            constraints: BoxConstraints(
+              minHeight: Get.height -
+                  MediaQuery.of(context).viewInsets.bottom -
+                  Get.mediaQuery.padding.top -
+                  Get.mediaQuery.padding.bottom -
+                  120,
+            ),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  children: [
+                    Image.asset(
+                      'assets/images/${_exercise!.image}',
+                      fit: BoxFit.cover,
+                      width: Get.width,
                     ),
-                    child: ButtonComponent(
-                      text: 'Done',
-                      onPressed: () {},
+                    const SizedBox(
+                      height: 24,
                     ),
+                    TitleComponent(
+                      text: _exercise.name,
+                      type: GlobalConstant.exerciseViewTitle,
+                    ),
+                    const SizedBox(
+                      height: 40,
+                    ),
+                  ],
+                ),
+                Column(
+                  children: [
+                    workout.timeBased
+                        ? GetBuilder<CounterController>(
+                            builder: (controller) {
+                              int _min = controller.count ~/ 60;
+                              int _sec = controller.count % 60;
+                              String _time =
+                                  (_min < 10 ? '0$_min : ' : '$_min : ') +
+                                      (_sec < 10 ? '0$_sec' : '$_sec');
+                              return Text(
+                                _time,
+                                style: TextStyle(
+                                  fontSize: Get.width * .2,
+                                  fontWeight: FontWeight.bold,
+                                  color: context.theme.primaryColor,
+                                ),
+                              );
+                            },
+                          )
+                        : RichText(text: TextSpan(children: _textForRep)),
+                    const SizedBox(height: 40),
+                  ],
+                ),
+                ConstrainedBox(
+                  constraints: const BoxConstraints(
+                    minWidth: 240,
+                    maxHeight: 56,
+                    maxWidth: 320,
+                    minHeight: 56,
                   ),
-                ],
-              ),
+                  child: ButtonComponent(
+                    text: 'Done',
+                    onPressed: () {},
+                  ),
+                ),
+              ],
             ),
           ),
         ),
