@@ -58,6 +58,11 @@ class TitleComponent extends StatelessWidget {
         _fontSize = 32.0;
         _textAlign = TextAlign.center;
         break;
+      case GlobalConstant.programDayTitle:
+        _fontWeight = FontWeight.w600;
+        _fontSize = 18.0;
+        _textAlign = TextAlign.start;
+        break;
     }
 
     return Text(
