@@ -3,6 +3,7 @@ import 'package:workout_application/views/screens/dashboard_screen.dart';
 import 'package:workout_application/views/screens/auth/login_screen.dart';
 import 'package:workout_application/views/screens/onboarding_screen.dart';
 import 'package:workout_application/views/screens/auth/register_screen.dart';
+import 'package:workout_application/views/screens/setting_screen.dart';
 
 class AppRoute {
   static const String dashboardScreen = '/dashboard_screen';
@@ -33,6 +34,10 @@ class AppRoute {
         GetPage(
           name: AppRoute.registerScreen,
           page: () => const RegisterScreen(),
+        ),
+        GetPage(
+          name: AppRoute.settingsScreen,
+          page: () => const SettingScreen(),
         ),
       ];
 }
