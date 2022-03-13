@@ -10,6 +10,7 @@ import 'package:workout_application/views/components/app_bar_component.dart';
 import 'package:workout_application/views/components/button_component.dart';
 import 'package:workout_application/views/components/program_day_card_component.dart';
 import 'package:workout_application/views/components/title_component.dart';
+import 'package:workout_application/views/screens/program_day_view_screen.dart';
 
 class ProgramViewScreen extends StatelessWidget {
   final Program program;
@@ -90,6 +91,11 @@ class ProgramViewScreen extends StatelessWidget {
               title: 'Day ${i + 1}',
               description: i >= 1 ? '${i + 1} workouts' : '${i + 1} workout',
               completed: i % 3 == 0,
+              onTap: () {
+                Get.to(
+                  ProgramDayViewScreen(program: program, day: i),
+                );
+              },
             ),
           ),
         ]);
@@ -104,6 +110,11 @@ class ProgramViewScreen extends StatelessWidget {
               title: 'Day ${i + 1}',
               description: i >= 1 ? '${i + 1} workouts' : '${i + 1} workout',
               completed: i % 3 == 0,
+              onTap: () {
+                Get.to(
+                  ProgramDayViewScreen(program: program, day: i),
+                );
+              },
             ),
           ),
         );
