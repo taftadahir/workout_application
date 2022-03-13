@@ -39,7 +39,7 @@ class DrawerScreen extends StatelessWidget {
                           height: 112,
                           margin: const EdgeInsets.only(bottom: 24),
                           decoration: BoxDecoration(
-                            color: Colors.redAccent,
+                            color: context.theme.cardColor,
                             borderRadius: BorderRadius.circular(16.0),
                             image: const DecorationImage(
                               image: NetworkImage('https://image.shutterstock'
@@ -80,40 +80,41 @@ class DrawerScreen extends StatelessWidget {
                     top: 32,
                     bottom: 40,
                   ),
-                  child: GetBuilder<DashboardController>(
-                    builder: (controller) {
-                      return Column(
-                        children: drawerItems
-                            .map(
-                              (item) => ListTile(
-                                title: Text(
-                                  item.title,
-                                  style: const TextStyle(
-                                    fontSize: 16.0,
-                                  ),
+                  child: GetBuilder<DashboardController>(builder: (controller) {
+                    return Column(
+                      children: drawerItems
+                          .map(
+                            (item) => ListTile(
+                              title: Text(
+                                item.title,
+                                style: const TextStyle(
+                                  fontSize: 16.0,
                                 ),
-                                leading: Icon(
-                                  item.icon,
-                                  size: 24.0,
-                                ),
-                                onTap: () {
-                                  if(item.type == AppRoute.favoriteScreen){
-                                    controller.screenIndex = 2;
-                                  }
-                                  controller.closeDrawer();
-                                  if (item.type == AppRoute.onboardingScreen) {
-                                    Get.toNamed(AppRoute.onboardingScreen);
-                                  }
-                                  if(item.type == AppRoute.logoutScreen){
-                                    Get.toNamed(AppRoute.loginScreen);
-                                  }
-                                },
                               ),
-                            )
-                            .toList(),
-                      );
-                    }
-                  ),
+                              leading: Icon(
+                                item.icon,
+                                size: 24.0,
+                              ),
+                              onTap: () {
+                                if (item.type == AppRoute.favoriteScreen) {
+                                  controller.screenIndex = 2;
+                                }
+                                controller.closeDrawer();
+                                if (item.type == AppRoute.onboardingScreen) {
+                                  Get.toNamed(AppRoute.onboardingScreen);
+                                }
+                                if (item.type == AppRoute.logoutScreen) {
+                                  Get.toNamed(AppRoute.loginScreen);
+                                }
+                                if (item.type == AppRoute.settingsScreen) {
+                                  Get.toNamed(AppRoute.settingsScreen);
+                                }
+                              },
+                            ),
+                          )
+                          .toList(),
+                    );
+                  }),
                 ),
               ],
             ),
