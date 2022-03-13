@@ -63,6 +63,16 @@ class TitleComponent extends StatelessWidget {
         _fontSize = 18.0;
         _textAlign = TextAlign.start;
         break;
+      case GlobalConstant.settingItemTitle:
+        _fontWeight = FontWeight.w600;
+        _fontSize = 17.0;
+        _textAlign = TextAlign.start;
+        break;
+      case GlobalConstant.settingGroupTitle:
+        _fontWeight = FontWeight.w600;
+        _fontSize = 24.0;
+        _textAlign = TextAlign.start;
+        break;
     }
 
     return Text(
