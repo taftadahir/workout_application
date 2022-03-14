@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:workout_application/configs/layout.dart';
 import 'package:workout_application/configs/routes.dart';
 import 'package:workout_application/controllers/dashboard_controller.dart';
+import 'package:workout_application/controllers/profile_controller.dart';
 import 'package:workout_application/models/drawer_item.dart';
 
 class DrawerScreen extends StatelessWidget {
@@ -30,44 +31,46 @@ class DrawerScreen extends StatelessWidget {
                     bottom: 32,
                   ),
                   child: GestureDetector(
-                    onTap: () {},
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                          width: 112,
-                          height: 112,
-                          margin: const EdgeInsets.only(bottom: 24),
-                          decoration: BoxDecoration(
-                            color: context.theme.cardColor,
-                            borderRadius: BorderRadius.circular(16.0),
-                            image: const DecorationImage(
-                              image: NetworkImage('https://image.shutterstock'
-                                  ''
-                                  '.com/image-photo/cheerful-positive-guy-beard-rejoicing-260nw-1478799818.jpg'),
-                              fit: BoxFit.cover,
+                    onTap: () {
+                      Get.toNamed(AppRoute.profileScreen);
+                    },
+                    child: GetBuilder<ProfileController>(builder: (_profile) {
+                      return Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Container(
+                            width: 112,
+                            height: 112,
+                            margin: const EdgeInsets.only(bottom: 24),
+                            decoration: BoxDecoration(
+                              color: context.theme.cardColor,
+                              borderRadius: BorderRadius.circular(16.0),
+                              image: DecorationImage(
+                                image: NetworkImage(_profile.avatar),
+                                fit: BoxFit.cover,
+                              ),
                             ),
                           ),
-                        ),
-                        const Text(
-                          'Jane Doe',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            fontSize: 24,
+                          Text(
+                            '${_profile.firstname} ${_profile.lastname}',
+                            style: const TextStyle(
+                              fontWeight: FontWeight.bold,
+                              fontSize: 24,
+                            ),
                           ),
-                        ),
-                        const SizedBox(
-                          height: 8,
-                        ),
-                        const Text(
-                          'jane.doe@mail.mail',
-                          style: TextStyle(
-                            fontSize: 16,
-                            fontWeight: FontWeight.normal,
+                          const SizedBox(
+                            height: 8,
                           ),
-                        ),
-                      ],
-                    ),
+                          Text(
+                            _profile.email,
+                            style: const TextStyle(
+                              fontSize: 16,
+                              fontWeight: FontWeight.normal,
+                            ),
+                          ),
+                        ],
+                      );
+                    }),
                   ),
                 ),
                 Container(
