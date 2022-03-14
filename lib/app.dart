@@ -4,7 +4,6 @@ import 'package:workout_application/configs/theme.dart' as app_theme;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:workout_application/constants/global_constant.dart';
-import 'package:workout_application/services/storage_service.dart';
 import 'package:workout_application/services/theme_service.dart';
 
 class App extends StatelessWidget {
@@ -19,9 +18,7 @@ class App extends StatelessWidget {
         darkTheme: app_theme.Theme.dark,
         themeMode: ThemeService.theme,
         initialBinding: AppBinding(),
-        initialRoute: StorageService.isFirstEntrance
-            ? AppRoute.onboardingScreen
-            : AppRoute.dashboardScreen,
+        initialRoute: AppRoute.initialRoute,
         getPages: AppRoute.getPages,
       );
 }

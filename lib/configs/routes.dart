@@ -1,4 +1,6 @@
 import 'package:get/get.dart';
+import 'package:workout_application/services/storage_service.dart';
+import 'package:workout_application/views/screens/auth/edit_profile_screen.dart';
 import 'package:workout_application/views/screens/dashboard_screen.dart';
 import 'package:workout_application/views/screens/auth/login_screen.dart';
 import 'package:workout_application/views/screens/onboarding_screen.dart';
@@ -17,6 +19,15 @@ class AppRoute {
   static const String profileScreen = '/profile_screen';
   static const String settingsScreen = '/settings_screen';
   static const String logoutScreen = '/logout_screen';
+
+  static String get initialRoute {
+    if (StorageService.firstname == null ||
+        StorageService.lastname == null ||
+        StorageService.email == null) {
+      return registerScreen;
+    }
+    return dashboardScreen;
+  }
 
   static List<GetPage<dynamic>> get getPages => [
         GetPage(
@@ -38,6 +49,10 @@ class AppRoute {
         GetPage(
           name: AppRoute.settingsScreen,
           page: () => const SettingScreen(),
+        ),
+        GetPage(
+          name: AppRoute.profileScreen,
+          page: () => const EditProfileScreen(),
         ),
       ];
 }
