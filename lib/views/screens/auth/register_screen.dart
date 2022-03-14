@@ -22,6 +22,10 @@ class RegisterScreen extends StatelessWidget {
         body: SafeArea(
           child: SingleChildScrollView(
             physics: Behavior.physics,
+            padding: const EdgeInsets.only(
+              left: Layout.horizontalScreenPadding,
+              right: Layout.horizontalScreenPadding,
+            ),
             child: Form(
               key: controller.registerFormKey,
               autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -52,14 +56,11 @@ class RegisterScreen extends StatelessWidget {
     required BuildContext context,
     required RegisterController controller,
   }) {
-    PageController _pageController = PageController();
     return [
       Container(
         margin: const EdgeInsets.only(
           bottom: 40.0,
           top: Layout.verticalScreenPadding,
-          left: Layout.horizontalScreenPadding,
-          right: Layout.horizontalScreenPadding,
         ),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -92,7 +93,7 @@ class RegisterScreen extends StatelessWidget {
         ),
         child: SvgPicture.asset(
           'assets/images/app_icon.svg',
-          // width: Get.width,
+          width: Get.width,
         ),
       ),
       Column(
@@ -102,137 +103,66 @@ class RegisterScreen extends StatelessWidget {
           ),
           const TitleComponent(text: 'Register'),
           const SizedBox(
-            height: 16.0,
-          ),
-          Text(
-            'STEP ${controller.screenIndex + 1} out 2',
-            style: Get.theme.textTheme.headlineSmall,
-          ),
-          const SizedBox(
             height: 40.0,
           ),
-          SizedBox(
-            height: 184.0,
-            child: PageView.builder(
-              physics: Behavior.physics,
-              scrollDirection: Axis.horizontal,
-              controller: _pageController,
-              onPageChanged: (int index) => controller.screenIndex = index,
-              itemCount: 2,
-              itemBuilder: (_, index) => Column(
-                children: [
-                  controller.screenIndex == 0
-                      ? Padding(
-                          padding: const EdgeInsets.only(
-                            left: Layout.horizontalScreenPadding,
-                            right: Layout.horizontalScreenPadding,
-                          ),
-                          child: FieldContainerComponent(
-                            child: TextFieldComponent(
-                              label: 'First name',
-                              hint: 'Enter your first name',
-                              controller: controller.firstnameController,
-                              onSaved: (value) => controller.firstname = value!,
-                            ),
-                          ),
-                        )
-                      : Padding(
-                          padding: const EdgeInsets.only(
-                            left: Layout.horizontalScreenPadding,
-                            right: Layout.horizontalScreenPadding,
-                          ),
-                          child: FieldContainerComponent(
-                            child: EmailFieldComponent(
-                              controller: controller.emailController,
-                              onSaved: (value) => controller.email = value!,
-                            ),
-                          ),
-                        ),
-                  const SizedBox(
-                    height: 8.0,
-                  ),
-                  controller.screenIndex == 0
-                      ? Padding(
-                          padding: const EdgeInsets.only(
-                            left: Layout.horizontalScreenPadding,
-                            right: Layout.horizontalScreenPadding,
-                          ),
-                          child: FieldContainerComponent(
-                            child: TextFieldComponent(
-                              label: 'Last name',
-                              hint: 'Enter your last name',
-                              controller: controller.lastnameController,
-                              onSaved: (value) => controller.lastname = value!,
-                            ),
-                          ),
-                        )
-                      : Padding(
-                          padding: const EdgeInsets.only(
-                            left: Layout.horizontalScreenPadding,
-                            right: Layout.horizontalScreenPadding,
-                          ),
-                          child: FieldContainerComponent(
-                            child: PasswordFieldComponent(
-                              controller: controller.passwordController,
-                              onSaved: (value) => controller.password = value!,
-                            ),
-                          ),
-                        ),
-                ],
+          Column(
+            children: [
+              FieldContainerComponent(
+                child: TextFieldComponent(
+                  label: 'First name',
+                  hint: 'Enter your first name',
+                  controller: controller.firstnameController,
+                  onSaved: (value) => controller.firstname = value!,
+                ),
               ),
-            ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              FieldContainerComponent(
+                child: TextFieldComponent(
+                  label: 'Last name',
+                  hint: 'Enter your last name',
+                  controller: controller.lastnameController,
+                  onSaved: (value) => controller.lastname = value!,
+                ),
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              FieldContainerComponent(
+                child: EmailFieldComponent(
+                  controller: controller.emailController,
+                  onSaved: (value) => controller.email = value!,
+                ),
+              ),
+              const SizedBox(
+                height: 8.0,
+              ),
+              FieldContainerComponent(
+                child: PasswordFieldComponent(
+                  controller: controller.passwordController,
+                  onSaved: (value) => controller.password = value!,
+                ),
+              ),
+            ],
           ),
           const SizedBox(
             height: 24,
           ),
-          Padding(
-            padding: const EdgeInsets.only(
-              left: Layout.horizontalScreenPadding,
-              right: Layout.horizontalScreenPadding,
+          ConstrainedBox(
+            constraints: const BoxConstraints(
+              minWidth: 240,
+              maxHeight: 56,
+              maxWidth: 320,
+              minHeight: 56,
             ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                controller.screenIndex == 1
-                    ? Container(
-                        margin: const EdgeInsets.only(right: 8.0),
-                        child: IconButton(
-                          onPressed: () {
-                            _pageController.previousPage(
-                              duration: Behavior.animationDuration,
-                              curve: Curves.bounceIn,
-                            );
-                          },
-                          icon: const Icon(Icons.arrow_back_ios_rounded),
-                        ),
-                      )
-                    : Container(),
-                ConstrainedBox(
-                  constraints: const BoxConstraints(
-                    minWidth: 240,
-                    maxHeight: 56,
-                    maxWidth: 320,
-                    minHeight: 56,
-                  ),
-                  child: ButtonComponent(
-                    text: controller.screenIndex == 0 ? 'Next' : 'Register',
-                    onPressed: () {
-                      if (controller.screenIndex == 0) {
-                        _pageController.nextPage(
-                          duration: Behavior.animationDuration,
-                          curve: Curves.bounceIn,
-                        );
-                      } else {
-                        controller.register();
-                      }
-                    },
-                  ),
-                ),
-              ],
+            child: ButtonComponent(
+              text: 'Register',
+              onPressed: controller.register,
             ),
           ),
           const SizedBox(
-            height: 24.0,
+            height: 16.0,
           ),
         ],
       )
