@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:workout_application/configs/routes.dart';
 import 'package:workout_application/constants/global_constant.dart';
+import 'package:workout_application/controllers/profile_controller.dart';
+import 'package:workout_application/services/storage_service.dart';
 import 'package:workout_application/views/components/snack_bar_component.dart';
 
 class RegisterController extends GetxController {
-  int _screenIndex = 0;
   late TextEditingController firstnameController,
       lastnameController,
       emailController,
@@ -32,13 +34,6 @@ class RegisterController extends GetxController {
     firstnameController.dispose();
     lastnameController.dispose();
     super.onClose();
-  }
-
-  int get screenIndex => _screenIndex;
-
-  set screenIndex(int index) {
-    _screenIndex = index;
-    update();
   }
 
   void register() {
@@ -79,6 +74,14 @@ class RegisterController extends GetxController {
     } else {
       registerFormKey.currentState!.save();
 
+      StorageService.firstname = firstname;
+      StorageService.lastname = lastname;
+      StorageService.email = email;
+      update();
+
+      ProfileController profileController = Get.find();
+      profileController.refreshData();
+      Get.offNamed(AppRoute.dashboardScreen);
       // Here we make the request to login
     }
   }
