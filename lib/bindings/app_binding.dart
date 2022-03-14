@@ -2,6 +2,7 @@ import 'package:get/get.dart';
 import 'package:workout_application/controllers/counter_controller.dart';
 import 'package:workout_application/controllers/dashboard_controller.dart';
 import 'package:workout_application/controllers/favorite_controller.dart';
+import 'package:workout_application/controllers/history_controller.dart';
 import 'package:workout_application/controllers/home_controller.dart';
 import 'package:workout_application/controllers/login_controller.dart';
 import 'package:workout_application/controllers/onboarding_controller.dart';
@@ -24,5 +25,6 @@ class AppBinding extends Bindings {
     Get.lazyPut(() => FavoriteController(), fenix: true);
     Get.lazyPut(() => CounterController(), fenix: true);
     Get.lazyPut(() => ProfileController(), fenix: true);
+    Get.lazyPut(() => HistoryController(), fenix: true);
   }
 }
