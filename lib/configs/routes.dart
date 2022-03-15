@@ -3,6 +3,7 @@ import 'package:workout_application/services/storage_service.dart';
 import 'package:workout_application/views/screens/auth/edit_profile_screen.dart';
 import 'package:workout_application/views/screens/dashboard_screen.dart';
 import 'package:workout_application/views/screens/auth/login_screen.dart';
+import 'package:workout_application/views/screens/history_screen.dart';
 import 'package:workout_application/views/screens/onboarding_screen.dart';
 import 'package:workout_application/views/screens/auth/register_screen.dart';
 import 'package:workout_application/views/screens/setting_screen.dart';
@@ -53,6 +54,10 @@ class AppRoute {
         GetPage(
           name: AppRoute.profileScreen,
           page: () => const EditProfileScreen(),
+        ),
+        GetPage(
+          name: AppRoute.historyScreen,
+          page: () => const HistoryScreen(),
         ),
       ];
 }
