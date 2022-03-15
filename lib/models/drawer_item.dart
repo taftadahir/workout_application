@@ -64,9 +64,9 @@ final List<DrawerItem> drawerItems = [
   // _profile,
   _favorites,
   _history,
-  _exercisePack,
+  // _exercisePack,
   _onboarding,
   _settings,
-  _aboutUs,
+  // _aboutUs,
   _logout,
 ];

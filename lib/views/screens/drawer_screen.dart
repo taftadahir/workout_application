@@ -102,7 +102,6 @@ class DrawerScreen extends StatelessWidget {
                                 if (item.type == AppRoute.favoriteScreen) {
                                   controller.screenIndex = 2;
                                 }
-                                controller.closeDrawer();
                                 if (item.type == AppRoute.onboardingScreen) {
                                   Get.toNamed(AppRoute.onboardingScreen);
                                 }
@@ -112,6 +111,10 @@ class DrawerScreen extends StatelessWidget {
                                 if (item.type == AppRoute.settingsScreen) {
                                   Get.toNamed(AppRoute.settingsScreen);
                                 }
+                                if (item.type == AppRoute.historyScreen) {
+                                  Get.toNamed(AppRoute.historyScreen);
+                                }
+                                controller.closeDrawer();
                               },
                             ),
                           )
